@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Areeq 🤍</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fbcfe8 0%, #e0f2fe 100%);
+            min-height: 100vh; color: #334155; overflow-x: hidden;
+            display: flex; flex-direction: column; align-items: center; padding: 20px;
+        }
+        .hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; }
+        .floating-heart { position: absolute; color: rgba(244, 63, 94, 0.3); font-size: 20px; animation: floatUp 6s linear infinite; }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+            50% { opacity: 0.7; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 20px;
+        }
+        .modal-box {
+            background: #ffffff; padding: 35px 25px; border-radius: 20px; text-align: center;
+            max-width: 380px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 2px solid #f43f5e; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .modal-box h2 { color: #f43f5e; font-size: 28px; margin-bottom: 10px; font-weight: 600; }
+        .modal-box p { font-size: 14px; color: #64748b; margin-bottom: 25px; line-height: 1.6; }
+        .btn-group { display: flex; gap: 15px; justify-content: center; position: relative; min-height: 55px; }
+        .btn {
+            background: #f43f5e; color: white; border: none; padding: 12px 25px;
+            border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.2s;
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3); font-size: 15px; z-index: 5;
+        }
+        .btn:hover { background: #e11d48; transform: scale(1.05); }
+        .btn-no { background: #e2e8f0; color: #475569; box-shadow: none; position: absolute; transition: 0.1s ease-out; }
+        .main-container { display: none; width: 100%; max-width: 800px; z-index: 10; text-align: center; padding-bottom: 80px; animation: fadeIn 1s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        h1.main-title { font-size: 42px; color: #1e293b; margin: 15px 0; font-weight: 700; }
+        .section-box { background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 30px; border: 1px solid #e2e8f0; position: relative; overflow: hidden; }
+        .section-title { font-size: 20px; color: #1e293b; margin-bottom: 20px; font-weight: 600; }
+        .quiz-container { text-align: left; }
+        .quiz-question { font-weight: 600; font-size: 15px; color: #334155; margin-bottom: 15px; }
+        .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+        .quiz-btn {
+            background: #f8fafc; border: 2px solid #e2e8f0; padding: 12px 18px;
+            border-radius: 10px; cursor: pointer; font-weight: 500; color: #475569; transition: 0.2s; text-align: left;
+        }
+        .quiz-btn:hover { background: #fce7f3; color: #f43f5e; border-color: #fbcfe8; }
+        .quiz-feedback { margin-top: 15px; font-weight: 600; font-size: 14px; text-align: center; }
+        .envelope {
+            cursor: pointer; width: 140px; height: 95px; background: #fda4af;
+            margin: 0 auto 15px auto; position: relative; border-radius: 0 0 10px 10px;
+            box-shadow: 0 6px 20px rgba(253, 164, 175, 0.4); transition: 0.3s;
+        }
+        .envelope:hover { transform: scale(1.05); }
+        .envelope-flap {
+            position: absolute; top: 0; left: 0; width: 0; height: 0;
+            border-left: 70px solid transparent; border-right: 70px solid transparent;
+            border-top: 55px solid #f43f5e; transform-origin: top; transition: transform 0.5s ease;
+        }
+        .envelope.open .envelope-flap { transform: rotateX(180deg); }
+        .flower-bloom {
+            position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%) scale(0);
+            font-size: 45px; z-index: 20; transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .envelope.open ~ .flower-bloom { transform: translate(-50%, -120%) scale(1.2); }
+        .letter-content {
+            display: none; background: #fff1f2; padding: 22px; border-radius: 10px;
+            text-align: left; margin-top: 15px; font-size: 14px; line-height: 1.8;
+            color: #475569; border: 1px dashed #fbcfe8; white-space: pre-line; min-height: 140px;
+        }
+        .typewriter-cursor::after { content: '|'; animation: blink 0.7s infinite; color: #f43f5e; font-weight: bold; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .wish-jar-container { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+        .jar-icon { font-size: 60px; animation: bounceJar 2s infinite alternate; }
+        @keyframes bounceJar { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+        .jar-icon:hover { transform: scale(1.08); }
+        .wish-note-display {
+            margin-top: 15px; background: #fff1f2; padding: 15px 20px; border-radius: 10px;
+            border: 1px solid #fbcfe8; font-size: 15px;
+            color: #e11d48; min-height: 60px; display: flex; align-items: center;
+            justify-content: center; text-align: center; width: 100%; max-width: 450px;
+        }
+        .mystery-box {
+            background: linear-gradient(135deg, #f43f5e, #be123c); color: white; padding: 18px;
+            border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 16px;
+            box-shadow: 0 4px 12px rgba(244, 63, 94, 0.2); transition: 0.3s;
+        }
+        .mystery-box:hover { transform: scale(1.02); }
+        .mystery-result { display: none; margin-top: 15px; font-size: 16px; color: #be123c; font-weight: 500; }
+        .passcode-box { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+        .passcode-input { padding: 10px 15px; border-radius: 10px; border: 2px solid #cbd5e1; outline: none; font-size: 15px; width: 200px; text-align: center; }
+        .panic-btn {
+            background: #0f172a; color: #fff; border: none; padding: 12px 20px;
+            border-radius: 10px; font-weight: 600; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .panic-btn:hover { background: #334155; }
+        .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; justify-items: center; }
+        .polaroid-card { background: #fff; padding: 10px 10px 25px 10px; width: 170px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.06); transform: rotate(-2deg); transition: 0.3s ease; }
+        .polaroid-card:nth-child(even) { transform: rotate(2deg); }
+        .polaroid-card:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 20; }
+        .polaroid-img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: #f1f5f9; }
+        .polaroid-caption { font-size: 14px; color: #475569; margin-top: 10px; text-align: center; }
+        .music-control {
+            position: fixed; bottom: 20px; right: 20px; background: #fff; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 100; color: #f43f5e; font-size: 18px; border: 2px solid #fbcfe8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Prank Modal -->
+    <div class="modal-overlay" id="warningModal">
+        <div class="modal-box">
+            <h2>Surprise? 🥷</h2>
+            <p id="prankText">suprise! sorry ni je aku mampu buat utk celebrate your special day</p>
+            <div class="btn-group">
+                <button class="btn" onclick="startExperience()">hope you had fun today</button>
+                <button class="btn btn-no" id="noBtn" onmouseover="moveNoButton()" onclick="handleNoClick()">lol ok</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-cute.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="music-control" id="musicToggle" onclick="toggleMusic()" style="display: none;">
+        <i class="fa-solid fa-music" id="musicIcon"></i>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container" id="mainContainer">
+        <h1 class="main-title">Happy Birthday Areeq 🎂</h1>
+
+        <!-- Multi-Question Quiz Section -->
+        <div class="section-box quiz-container">
+            <h2 class="section-title">Ingat Lagi Tak?</h2>
+            <div id="quizBox">
+                <!-- Soalan akan masuk secara automatik dari kod script -->
+            </div>
+        </div>
+
+        <!-- Letter Section -->
+        <div class="section-box" id="letterSection" style="opacity: 0.4; pointer-events: none; transition: 0.5s;">
+            <h2 class="section-title">Birthday Wish<span style="font-size: 12px; color:#64748b;" id="lockStatus">(Jawab semua soalan dulu)</span></h2>
+            <div class="flower-bloom" id="flowerBloom">💌✨</div>
+            <div class="envelope" id="envelope" onclick="openLetter()">
+                <div class="envelope-flap"></div>
+                <div style="position: absolute; bottom: 30px; width: 100%; text-align: center; color: white; font-weight: 600; font-size: 11px;">LOCKED 🔒</div>
+            </div>
+            <div class="letter-content typewriter-cursor" id="letterContent"></div>
+        </div>
+
+        <!-- Wish Jar Section -->
+        <div class="section-box">
+            <h2 class="section-title">Unspoken Words</h2>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Tekan balang ni untuk tengok apa yang aku nak cakap:</p>
+            <div class="wish-jar-container" onclick="getRandomWish()">
+                <div class="jar-icon">🏺</div>
+                <div class="wish-note-display" id="wishDisplay">"Tekan sini kalau rindu... eh gurau. Tekan je 🤭"</div>
+            </div>
+        </div>
+
+        <!-- Mystery Box Section -->
+        <div class="section-box">
+            <h2 class="section-title">Suprise Box</h2>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">tempat yang aku dah beli and book :(</p>
+            <div class="mystery-box" onclick="openMysteryBox()">Buka Kotak 🔓</div>
+            <div class="mystery-result" id="mysteryResult">🎁 Kupon tebus: <em>"nanti aku bagi kalau aku masih ingat hahah"</em> 🧋</div>
+        </div>
+
+        <!-- Panic / Spam Emoji Button -->
+        <div class="section-box">
+            <h2 class="section-title">Warning ⚠️</h2>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">aku try buat nak nampak comel sweet tapi dah jadi ex mcm kelakar</p>
+            <button class="panic-btn" onclick="triggerPanic()">try la</button>
+        </div>
+
+        <!-- Polaroid Gallery Section (Locked with Passcode) -->
+        <div class="section-box">
+            <h2 class="section-title">Our Museum 📸</h2>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
+            <div class="passcode-box">
+                <input type="password" class="passcode-input" id="passcodeInput" placeholder="Masukkan Passcode...">
+                <button class="btn" onclick="checkPasscode()" style="padding: 10px 20px; font-size: 14px;">Submit</button>
+            </div>
+            <p id="passcodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 14px;"></p>
+
+            <div class="polaroid-grid" id="polaroidGallery" style="margin-top: 25px; opacity: 0.3; pointer-events: none; transition: 0.5s;">
+                <div class="polaroid-card">
+                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=300" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">Masa ni gelak tak ingat dunia 🤍</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=300" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">Tempat last kita dating 🍜</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8ab2886d?w=300" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">Rindu sikit tak? 📷</div>
+                </div>
+                <!-- KOTAK VIDEO YOUTUBE (Tukar KOD_YOUTUBE_AWAK dengan link video awak) -->
+                <div class="polaroid-card">
+                    <iframe width="100%" height="150" src="https://www.youtube.com/embed/KOD_YOUTUBE_AWAK" style="border:none; border-radius:4px;" allowfullscreen></iframe>
+                    <div class="polaroid-caption">Kenangan kita 🎥</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Floating elements
+        setInterval(() => {
+            const h = document.createElement('div');
+            h.classList.add('floating-heart');
+            h.innerHTML = ['✨', '💭', '🍂', '💫'][Math.floor(Math.random()*4)];
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            document.getElementById('heartsContainer').appendChild(h);
+            setTimeout(() => h.remove(), 6000);
+        }, 500);
+
+        // Quiz Data
+        const quizData = [
+            {
+                q: "1. One thing yang pernah buat aku nangis bila dengar?",
+                options: ["A. kau accident", "B. mimpi kau dah takde 💭", "C. kita tak jadi keluar"],
+                answer: 1
+            },
+            {
+                q: "2. Satu tempat yang kita dah pergi ikut plan aku?",
+                options: ["A. Gamuda", "B. Bamboo Hills", "C. Anjung Floria"],
+                answer: 0
+            },
+            {
+                q: "3. Macam mana kau detect aku merajuk or marah?",
+                options: ["A. Diam", "B. Nganjing or ngungkit or bebel", "C. Tak tentu, kadang2 dua2, kadang2 takde"],
+                answer: 2
+            }
+        ];
+
+        let currentQuiz = 0;
+        let quizPassed = false;
+
+        function loadQuiz() {
+            const box = document.getElementById('quizBox');
+            if (currentQuiz < quizData.length) {
+                const data = quizData[currentQuiz];
+                let html = `<div class="quiz-question">${data.q}</div><div class="quiz-options">`;
+                data.options.forEach((opt, idx) => {
+                    html += `<button class="quiz-btn" onclick="submitQuiz(${idx})">${opt}</button>`;
+                });
+                html += `</div><div class="quiz-feedback" id="quizFeedback"></div>`;
+                box.innerHTML = html;
+            } else {
+                quizPassed = true;
+                box.innerHTML = `<div style="color: #16a34a; font-weight: 600; text-align: center; font-size: 16px;">Tahniah! Semua soalan lepas. Mesej rahsia dah terbuka! 🎉🔓</div>`;
+                
+                const letterSec = document.getElementById('letterSection');
+                letterSec.style.opacity = "1";
+                letterSec.style.pointerEvents = "auto";
+                document.getElementById('lockStatus').style.display = "none";
+                document.querySelector('#envelope + div').innerHTML = "baca laaa, aku buat dgn ikhlas ni tau";
+
+                confetti({ particleCount: 100, spread: 70, origin: { y: 0.4 } });
+            }
+        }
+
+        function submitQuiz(selectedIdx) {
+            const feedback = document.getElementById('quizFeedback');
+            if (selectedIdx === quizData[currentQuiz].answer) {
+                feedback.style.color = "#16a34a";
+                feedback.innerHTML = "damn. kau masih ingat...";
+                currentQuiz++;
+                setTimeout(loadQuiz, 1000);
+            } else {
+                feedback.style.color = "#dc2626";
+                feedback.innerHTML = "amboi, cepat ajee nak lupakan aku";
+            }
+        }
+
+        window.onload = function() {
+            loadQuiz();
+        };
+
+        // Wish Jar
+        const wishes = [
+            "“tengok website ni, tak rasa rindu kat kita ke? 💭”",
+            "“aku harap kau sedar yang kau berubah sangat..✨”",
+            "“goodluck palapes, goodluck giso, goodluck in future okay..”",
+            "“aku yakin kau dah happy skrg sbb bebas, aku rindu kau tau..”",
+            "“thankyou family kau sbb pernah terima aku sekejap hehe”",
+            "“aku tahu aku tak fun mcm kawan2 kau yg lain, sorry areeq pernah muncul dlm life kau”",
+            "“aku takkan ajak getback dah, dont worry haha”",
+            "“nanti kan, bila kau akan kawin, aku taknak kena invite tau, live happily okayy”",
+            "“thankyou untuk semua hadiah and barang kau kasi aku”",
+            "“jangan main2 dgn orang lain tau, jangan always janji, tak semua org sekuat kau areeq, tak semua org bole pendam ;)”",
+            "“sorry sbb paksa nak kawin, walhal kau takde niat pun lagi”",
+            "“kalau sayang ke rindu ke, ckp je, jgn fikir benda lain, banyak je cara and solution, please..”",
+            "“aku harap ada something value yg aku tinggalkan kat kau, mcm skrg kau dah pandai cari duit hasil dri aku memaksa cari kerja hehehe”",
+            "“banyak lagi benda aku nak ckp, tapi nnti jadi tempat luahan pulak”"
+        ];
+
+        function getRandomWish() {
+            const display = document.getElementById('wishDisplay');
+            display.innerHTML = wishes[Math.floor(Math.random() * wishes.length)];
+            confetti({ particleCount: 20, spread: 30, origin: { y: 0.7 }, colors: ['#f43f5e', '#3b82f6'] });
+        }
+
+        // Mystery Box
+        function openMysteryBox() {
+            document.getElementById('mysteryResult').style.display = 'block';
+            confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+        }
+
+        // Panic Button
+        function triggerPanic() {
+            for(let i=0; i<30; i++) {
+                setTimeout(() => {
+                    const spam = document.createElement('div');
+                    spam.innerHTML = ['👀','🥺','💭','✨','💌'][Math.floor(Math.random()*5)];
+                    spam.style.position = 'fixed';
+                    spam.style.left = Math.random() * 100 + 'vw';
+                    spam.style.top = Math.random() * 100 + 'vh';
+                    spam.style.fontSize = (Math.random() * 25 + 20) + 'px';
+                    spam.style.zIndex = '9999';
+                    document.body.appendChild(spam);
+                    setTimeout(() => spam.remove(), 1200);
+                }, i * 40);
+            }
+        }
+
+        // Passcode
+        function checkPasscode() {
+            const val = document.getElementById('passcodeInput').value.trim();
+            const feedback = document.getElementById('passcodeFeedback');
+            const gallery = document.getElementById('polaroidGallery');
+
+            if (val === "2104" || val.toLowerCase() === "first date") { 
+                feedback.style.color = "#16a34a";
+                feedback.innerHTML = "nasib baik laaa masih ingat";
+                gallery.style.opacity = "1";
+                gallery.style.pointerEvents = "auto";
+                confetti({ particleCount: 80, spread: 70 });
+            } else {
+                feedback.style.color = "#dc2626";
+                feedback.innerHTML = "weh... cepat gila lupa";
+            }
+        }
+
+        // Prank Modal
+        let noClicks = 0;
+        const prankMessages = [
+            "eh ko, tekan jela yg tu",
+            "wehh penat sia aku buat, kau taknak pulak hmm",
+            "tekan jela, bukannya aku pukul pun",
+            "tekan la, aku buat full effort ni"
+        ];
+        function moveNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.transform = `translate(${Math.random() * 160 - 80}px, ${Math.random() * 80 - 40}px)`;
+        }
+        function handleNoClick() {
+            noClicks++;
+            if (noClicks < prankMessages.length) {
+                document.getElementById('prankText').innerHTML = prankMessages[noClicks - 1];
+                moveNoButton();
+            } else {
+                document.getElementById('noBtn').style.display = 'none';
+                document.getElementById('prankText').innerHTML = "dah dah tengok je haihh";
+                setTimeout(startExperience, 1200);
+            }
+        }
+
+        function startExperience() {
+            document.getElementById('warningModal').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'block';
+            document.getElementById('musicToggle').style.display = 'flex';
+            document.getElementById('bgMusic').play().catch(() => {});
+            confetti({ particleCount: 100, spread: 70, origin: { y:0.5 } });
+        }
+
+        // Letter Text
+        const letterText = `Areeq,
+
+Selamat hari lahir. Sengaja aku luang masa buat benda ni untuk kau. Walaupun sekarang haluan kita dah berbeza dan masing-masing ada kehidupan sendiri, aku takkan lupa memori yang kita pernah bina sama-sama. 
+
+Jujur, ada hari-hari di mana aku rindu gelagat bodoh kita, rindu cara kita bercerita tanpa ada penat. Tapi tak apa, aku harap di mana pun kau berada sekarang, kau bahagia dengan pilihan kau. 
+
+Kalau rindu tu datang, baca balik website ni. Have a good one, Areeq. 
+
+— [ailia 🐈]`;
+
+        let isLetterOpen = false;
+        function openLetter() {
+            if (!quizPassed) return;
+            const env = document.getElementById('envelope');
+            const lettr = document.getElementById('letterContent');
+            env.classList.toggle('open');
+
+            if (!isLetterOpen) {
+                isLetterOpen = true;
+                lettr.style.display = 'block';
+                let i = 0;
+                lettr.innerHTML = ""; 
+                function typeWriter() {
+                    if (i < letterText.length) {
+                        lettr.innerHTML += letterText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 35);
+                    }
+                }
+                setTimeout(typeWriter, 400);
+            } else {
+                lettr.style.display = lettr.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        let isPlaying = true;
+        function toggleMusic() {
+            const m = document.getElementById('bgMusic');
+            const icon = document.getElementById('musicIcon');
+            if(isPlaying) { m.pause(); icon.className = "fa-solid fa-volume-xmark"; }
+            else { m.play(); icon.className = "fa-solid fa-music"; }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
