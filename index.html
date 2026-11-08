@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Areeq 🤍</title>
+    <title>HBD Areeq 🎂</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,30 +14,31 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #fbcfe8 0%, #e0f2fe 100%);
-            min-height: 100vh; color: #334155; overflow-x: hidden;
+            /* Background Baru: Malam Romantis / Estetik */
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+            min-height: 100vh; color: #f1f5f9; overflow-x: hidden;
             display: flex; flex-direction: column; align-items: center; padding: 20px;
         }
         .hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; }
-        .floating-heart { position: absolute; color: rgba(244, 63, 94, 0.3); font-size: 20px; animation: floatUp 6s linear infinite; }
+        .floating-heart { position: absolute; color: rgba(244, 63, 94, 0.4); font-size: 20px; animation: floatUp 6s linear infinite; }
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
-            50% { opacity: 0.7; }
+            50% { opacity: 0.8; }
             100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
             display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 20px;
         }
         .modal-box {
-            background: #ffffff; padding: 35px 25px; border-radius: 20px; text-align: center;
-            max-width: 380px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            background: #1e293b; padding: 35px 25px; border-radius: 20px; text-align: center;
+            max-width: 380px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             border: 2px solid #f43f5e; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         .modal-box h2 { color: #f43f5e; font-size: 28px; margin-bottom: 10px; font-weight: 600; }
-        .modal-box p { font-size: 14px; color: #64748b; margin-bottom: 25px; line-height: 1.6; }
+        .modal-box p { font-size: 14px; color: #94a3b8; margin-bottom: 25px; line-height: 1.6; }
         .btn-group { display: flex; gap: 15px; justify-content: center; position: relative; min-height: 55px; }
         .btn {
             background: #f43f5e; color: white; border: none; padding: 12px 25px;
@@ -45,20 +46,20 @@
             box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3); font-size: 15px; z-index: 5;
         }
         .btn:hover { background: #e11d48; transform: scale(1.05); }
-        .btn-no { background: #e2e8f0; color: #475569; box-shadow: none; position: absolute; transition: 0.1s ease-out; }
+        .btn-no { background: #334155; color: #cbd5e1; box-shadow: none; position: absolute; transition: 0.1s ease-out; }
         .main-container { display: none; width: 100%; max-width: 800px; z-index: 10; text-align: center; padding-bottom: 80px; animation: fadeIn 1s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        h1.main-title { font-size: 42px; color: #1e293b; margin: 15px 0; font-weight: 700; }
-        .section-box { background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 30px; border: 1px solid #e2e8f0; position: relative; overflow: hidden; }
-        .section-title { font-size: 20px; color: #1e293b; margin-bottom: 20px; font-weight: 600; }
+        h1.main-title { font-size: 42px; color: #f8fafc; margin: 15px 0; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .section-box { background: #1e293b; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 30px; border: 1px solid #334155; position: relative; overflow: hidden; }
+        .section-title { font-size: 20px; color: #f8fafc; margin-bottom: 20px; font-weight: 600; }
         .quiz-container { text-align: left; }
-        .quiz-question { font-weight: 600; font-size: 15px; color: #334155; margin-bottom: 15px; }
+        .quiz-question { font-weight: 600; font-size: 15px; color: #e2e8f0; margin-bottom: 15px; }
         .quiz-options { display: flex; flex-direction: column; gap: 10px; }
         .quiz-btn {
-            background: #f8fafc; border: 2px solid #e2e8f0; padding: 12px 18px;
-            border-radius: 10px; cursor: pointer; font-weight: 500; color: #475569; transition: 0.2s; text-align: left;
+            background: #0f172a; border: 2px solid #334155; padding: 12px 18px;
+            border-radius: 10px; cursor: pointer; font-weight: 500; color: #cbd5e1; transition: 0.2s; text-align: left;
         }
-        .quiz-btn:hover { background: #fce7f3; color: #f43f5e; border-color: #fbcfe8; }
+        .quiz-btn:hover { background: #312e81; color: #f43f5e; border-color: #f43f5e; }
         .quiz-feedback { margin-top: 15px; font-weight: 600; font-size: 14px; text-align: center; }
         .envelope {
             cursor: pointer; width: 140px; height: 95px; background: #fda4af;
@@ -78,46 +79,49 @@
         }
         .envelope.open ~ .flower-bloom { transform: translate(-50%, -120%) scale(1.2); }
         .letter-content {
-            display: none; background: #fff1f2; padding: 22px; border-radius: 10px;
+            display: none; background: #0f172a; padding: 22px; border-radius: 10px;
             text-align: left; margin-top: 15px; font-size: 14px; line-height: 1.8;
-            color: #475569; border: 1px dashed #fbcfe8; white-space: pre-line; min-height: 140px;
+            color: #cbd5e1; border: 1px dashed #f43f5e; white-space: pre-line; min-height: 140px;
         }
         .typewriter-cursor::after { content: '|'; animation: blink 0.7s infinite; color: #f43f5e; font-weight: bold; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         .wish-jar-container { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
-        .jar-icon { font-size: 60px; animation: bounceJar 2s infinite alternate; }
+        
+        /* Guna GIF untuk gantikan ikon balang lama */
+        .jar-gif { width: 80px; height: 80px; object-fit: contain; animation: bounceJar 2s infinite alternate; }
         @keyframes bounceJar { from { transform: translateY(0); } to { transform: translateY(-6px); } }
-        .jar-icon:hover { transform: scale(1.08); }
+        .jar-gif:hover { transform: scale(1.08); }
+
         .wish-note-display {
-            margin-top: 15px; background: #fff1f2; padding: 15px 20px; border-radius: 10px;
-            border: 1px solid #fbcfe8; font-size: 15px;
-            color: #e11d48; min-height: 60px; display: flex; align-items: center;
+            margin-top: 15px; background: #0f172a; padding: 15px 20px; border-radius: 10px;
+            border: 1px solid #334155; font-size: 15px;
+            color: #fb7185; min-height: 60px; display: flex; align-items: center;
             justify-content: center; text-align: center; width: 100%; max-width: 450px;
         }
         .mystery-box {
             background: linear-gradient(135deg, #f43f5e, #be123c); color: white; padding: 18px;
             border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 16px;
-            box-shadow: 0 4px 12px rgba(244, 63, 94, 0.2); transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3); transition: 0.3s;
         }
         .mystery-box:hover { transform: scale(1.02); }
-        .mystery-result { display: none; margin-top: 15px; font-size: 16px; color: #be123c; font-weight: 500; }
+        .mystery-result { display: none; margin-top: 15px; font-size: 16px; color: #fb7185; font-weight: 500; }
         .passcode-box { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
-        .passcode-input { padding: 10px 15px; border-radius: 10px; border: 2px solid #cbd5e1; outline: none; font-size: 15px; width: 200px; text-align: center; }
+        .passcode-input { padding: 10px 15px; border-radius: 10px; border: 2px solid #334155; background: #0f172a; color: white; outline: none; font-size: 15px; width: 200px; text-align: center; }
         .panic-btn {
-            background: #0f172a; color: #fff; border: none; padding: 12px 20px;
-            border-radius: 10px; font-weight: 600; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #0f172a; color: #fff; border: 2px solid #334155; padding: 12px 20px;
+            border-radius: 10px; font-weight: 600; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .panic-btn:hover { background: #334155; }
         .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; justify-items: center; }
-        .polaroid-card { background: #fff; padding: 10px 10px 25px 10px; width: 170px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.06); transform: rotate(-2deg); transition: 0.3s ease; }
+        .polaroid-card { background: #334155; padding: 10px 10px 25px 10px; width: 170px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); transform: rotate(-2deg); transition: 0.3s ease; }
         .polaroid-card:nth-child(even) { transform: rotate(2deg); }
         .polaroid-card:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 20; }
-        .polaroid-img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: #f1f5f9; }
-        .polaroid-caption { font-size: 14px; color: #475569; margin-top: 10px; text-align: center; }
+        .polaroid-img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: #1e293b; }
+        .polaroid-caption { font-size: 14px; color: #e2e8f0; margin-top: 10px; text-align: center; }
         .music-control {
-            position: fixed; bottom: 20px; right: 20px; background: #fff; width: 50px; height: 50px;
+            position: fixed; bottom: 20px; right: 20px; background: #1e293b; width: 50px; height: 50px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 100; color: #f43f5e; font-size: 18px; border: 2px solid #fbcfe8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; z-index: 100; color: #f43f5e; font-size: 18px; border: 2px solid #334155;
         }
     </style>
 </head>
@@ -153,14 +157,12 @@
         <!-- Multi-Question Quiz Section -->
         <div class="section-box quiz-container">
             <h2 class="section-title">Ingat Lagi Tak?</h2>
-            <div id="quizBox">
-                <!-- Soalan akan masuk secara automatik dari kod script -->
-            </div>
+            <div id="quizBox"></div>
         </div>
 
         <!-- Letter Section -->
         <div class="section-box" id="letterSection" style="opacity: 0.4; pointer-events: none; transition: 0.5s;">
-            <h2 class="section-title">Birthday Wish<span style="font-size: 12px; color:#64748b;" id="lockStatus">(Jawab semua soalan dulu)</span></h2>
+            <h2 class="section-title">Birthday Wish <span style="font-size: 12px; color:#94a3b8;" id="lockStatus">(Jawab semua soalan dulu)</span></h2>
             <div class="flower-bloom" id="flowerBloom">💌✨</div>
             <div class="envelope" id="envelope" onclick="openLetter()">
                 <div class="envelope-flap"></div>
@@ -169,42 +171,44 @@
             <div class="letter-content typewriter-cursor" id="letterContent"></div>
         </div>
 
-        <!-- Wish Jar Section -->
+        <!-- Wish Jar Section (Menggunakan GIF) -->
         <div class="section-box">
             <h2 class="section-title">Unspoken Words</h2>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Tekan balang ni untuk tengok apa yang aku nak cakap:</p>
+            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">Tekan balang ni untuk tengok apa yang aku nak cakap:</p>
             <div class="wish-jar-container" onclick="getRandomWish()">
-                <div class="jar-icon">🏺</div>
-                <div class="wish-note-display" id="wishDisplay">"Tekan sini kalau rindu... eh gurau. Tekan je 🤭"</div>
+                <!-- Nota: Tukar link GIF bawah ni dengan link GIF pilihan awak (contoh dari Tenor/Giphy) -->
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXJnNHkxM3J5Mzh3ejBnY3R1MWdvazB6dTZwMjVqc3MzcnhxOGo1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iY25xIloX4bkwhcJJG/giphy.gif" class="jar-gif" alt="Jar GIF">
+                <div class="wish-note-display" id="wishDisplay">"ni kata2 yg aku tak sempat nak ungkap lahhh drama nya"</div>
             </div>
         </div>
 
         <!-- Mystery Box Section -->
         <div class="section-box">
             <h2 class="section-title">Suprise Box</h2>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">tempat yang aku dah beli and book :(</p>
-            <div class="mystery-box" onclick="openMysteryBox()">Buka Kotak 🔓</div>
-            <div class="mystery-result" id="mysteryResult">🎁 Kupon tebus: <em>"nanti aku bagi kalau aku masih ingat hahah"</em> 🧋</div>
+            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">tempat yang aku dah beli and book :(</p>
+            <div class="mystery-box" onclick="openMysteryBox()">bukak laa hehe</div>
+            <div class="mystery-result" id="mysteryResult">🎁 Kupon tebus: <em>"semua link2 nanti aku bagi kalau aku masih ingat hahah"</em> 🧋</div>
         </div>
 
-        <!-- Panic / Spam Emoji Button -->
+        <!-- Panic / Fullscreen Spam Button -->
         <div class="section-box">
             <h2 class="section-title">Warning ⚠️</h2>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">aku try buat nak nampak comel sweet tapi dah jadi ex mcm kelakar</p>
+            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 10px;">aku try buat nak nampak comel sweet tapi dah jadi ex mcm kelakar</p>
             <button class="panic-btn" onclick="triggerPanic()">try la</button>
         </div>
 
-        <!-- Polaroid Gallery Section (Locked with Passcode) -->
+        <!-- Polaroid Gallery Section (Benar-benar Hidden / Display: None kalau belum unlock) -->
         <div class="section-box">
             <h2 class="section-title">Our Museum 📸</h2>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
+            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
             <div class="passcode-box">
                 <input type="password" class="passcode-input" id="passcodeInput" placeholder="Masukkan Passcode...">
                 <button class="btn" onclick="checkPasscode()" style="padding: 10px 20px; font-size: 14px;">Submit</button>
             </div>
             <p id="passcodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 14px;"></p>
 
-            <div class="polaroid-grid" id="polaroidGallery" style="margin-top: 25px; opacity: 0.3; pointer-events: none; transition: 0.5s;">
+            <!-- Gallery disembunyikan terus (display: none) selagi belum betul password -->
+            <div class="polaroid-grid" id="polaroidGallery" style="margin-top: 25px; display: none;">
                 <div class="polaroid-card">
                     <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=300" class="polaroid-img" alt="Memory">
                     <div class="polaroid-caption">Masa ni gelak tak ingat dunia 🤍</div>
@@ -217,7 +221,7 @@
                     <img src="https://images.unsplash.com/photo-1511988617509-a57c8ab2886d?w=300" class="polaroid-img" alt="Memory">
                     <div class="polaroid-caption">Rindu sikit tak? 📷</div>
                 </div>
-                <!-- KOTAK VIDEO YOUTUBE (Tukar KOD_YOUTUBE_AWAK dengan link video awak) -->
+                <!-- KOTAK VIDEO YOUTUBE -->
                 <div class="polaroid-card">
                     <iframe width="100%" height="150" src="https://www.youtube.com/embed/KOD_YOUTUBE_AWAK" style="border:none; border-radius:4px;" allowfullscreen></iframe>
                     <div class="polaroid-caption">Kenangan kita 🎥</div>
@@ -272,7 +276,7 @@
                 box.innerHTML = html;
             } else {
                 quizPassed = true;
-                box.innerHTML = `<div style="color: #16a34a; font-weight: 600; text-align: center; font-size: 16px;">Tahniah! Semua soalan lepas. Mesej rahsia dah terbuka! 🎉🔓</div>`;
+                box.innerHTML = `<div style="color: #4ade80; font-weight: 600; text-align: center; font-size: 16px;">kay, ingat pulak..</div>`;
                 
                 const letterSec = document.getElementById('letterSection');
                 letterSec.style.opacity = "1";
@@ -287,12 +291,12 @@
         function submitQuiz(selectedIdx) {
             const feedback = document.getElementById('quizFeedback');
             if (selectedIdx === quizData[currentQuiz].answer) {
-                feedback.style.color = "#16a34a";
+                feedback.style.color = "#4ade80";
                 feedback.innerHTML = "damn. kau masih ingat...";
                 currentQuiz++;
                 setTimeout(loadQuiz, 1000);
             } else {
-                feedback.style.color = "#dc2626";
+                feedback.style.color = "#f87171";
                 feedback.innerHTML = "amboi, cepat ajee nak lupakan aku";
             }
         }
@@ -331,37 +335,37 @@
             confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
         }
 
-        // Panic Button
+        // Panic Button - Fullscreen Spam
         function triggerPanic() {
-            for(let i=0; i<30; i++) {
+            for(let i=0; i<50; i++) {
                 setTimeout(() => {
                     const spam = document.createElement('div');
-                    spam.innerHTML = ['👀','🥺','💭','✨','💌'][Math.floor(Math.random()*5)];
+                    spam.innerHTML = ['👀','🥺','💭','✨','💌','💥','❤️'][Math.floor(Math.random()*7)];
                     spam.style.position = 'fixed';
-                    spam.style.left = Math.random() * 100 + 'vw';
-                    spam.style.top = Math.random() * 100 + 'vh';
-                    spam.style.fontSize = (Math.random() * 25 + 20) + 'px';
-                    spam.style.zIndex = '9999';
+                    spam.style.left = Math.random() * 95 + 'vw';
+                    spam.style.top = Math.random() * 95 + 'vh';
+                    spam.style.fontSize = (Math.random() * 35 + 25) + 'px';
+                    spam.style.zIndex = '99999';
+                    spam.style.pointerEvents = 'none';
                     document.body.appendChild(spam);
-                    setTimeout(() => spam.remove(), 1200);
-                }, i * 40);
+                    setTimeout(() => spam.remove(), 1500);
+                }, i * 30);
             }
         }
 
-        // Passcode
+        // Passcode - Benar-benar unlock (tukar display jadi grid)
         function checkPasscode() {
             const val = document.getElementById('passcodeInput').value.trim();
             const feedback = document.getElementById('passcodeFeedback');
             const gallery = document.getElementById('polaroidGallery');
 
             if (val === "2104" || val.toLowerCase() === "first date") { 
-                feedback.style.color = "#16a34a";
+                feedback.style.color = "#4ade80";
                 feedback.innerHTML = "nasib baik laaa masih ingat";
-                gallery.style.opacity = "1";
-                gallery.style.pointerEvents = "auto";
+                gallery.style.display = "grid"; // Munculkan penuh selepas betul
                 confetti({ particleCount: 80, spread: 70 });
             } else {
-                feedback.style.color = "#dc2626";
+                feedback.style.color = "#f87171";
                 feedback.innerHTML = "weh... cepat gila lupa";
             }
         }
@@ -407,7 +411,7 @@ Jujur, ada hari-hari di mana aku rindu gelagat bodoh kita, rindu cara kita berce
 
 Kalau rindu tu datang, baca balik website ni. Have a good one, Areeq. 
 
-— [ailia 🐈]`;
+— [Nama Awak]`;
 
         let isLetterOpen = false;
         function openLetter() {
