@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HBD Areeq 🎂</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Happy Birthday Areeq 🤍</title>
+    <!-- Google Fonts: Yuyu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yuyu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -13,9 +15,12 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Poppins', sans-serif;
-            /* Background Baru: Malam Romantis / Estetik */
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+            /* Guna Font Yuyu untuk keseluruhan website */
+            font-family: 'Yuyu', cursive, sans-serif;
+            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), url('bg-ghost.png');
+            background-repeat: repeat;
+            background-size: auto;
+            background-color: #0f172a;
             min-height: 100vh; color: #f1f5f9; overflow-x: hidden;
             display: flex; flex-direction: column; align-items: center; padding: 20px;
         }
@@ -37,13 +42,14 @@
             border: 2px solid #f43f5e; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .modal-box h2 { color: #f43f5e; font-size: 28px; margin-bottom: 10px; font-weight: 600; }
+        .modal-box h2 { color: #f43f5e; font-size: 28px; margin-bottom: 10px; font-weight: 700; }
         .modal-box p { font-size: 14px; color: #94a3b8; margin-bottom: 25px; line-height: 1.6; }
         .btn-group { display: flex; gap: 15px; justify-content: center; position: relative; min-height: 55px; }
         .btn {
             background: #f43f5e; color: white; border: none; padding: 12px 25px;
             border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.2s;
             box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3); font-size: 15px; z-index: 5;
+            font-family: 'Yuyu', cursive, sans-serif;
         }
         .btn:hover { background: #e11d48; transform: scale(1.05); }
         .btn-no { background: #334155; color: #cbd5e1; box-shadow: none; position: absolute; transition: 0.1s ease-out; }
@@ -51,13 +57,14 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         h1.main-title { font-size: 42px; color: #f8fafc; margin: 15px 0; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .section-box { background: #1e293b; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 30px; border: 1px solid #334155; position: relative; overflow: hidden; }
-        .section-title { font-size: 20px; color: #f8fafc; margin-bottom: 20px; font-weight: 600; }
+        .section-title { font-size: 20px; color: #f8fafc; margin-bottom: 20px; font-weight: 700; }
         .quiz-container { text-align: left; }
         .quiz-question { font-weight: 600; font-size: 15px; color: #e2e8f0; margin-bottom: 15px; }
         .quiz-options { display: flex; flex-direction: column; gap: 10px; }
         .quiz-btn {
             background: #0f172a; border: 2px solid #334155; padding: 12px 18px;
-            border-radius: 10px; cursor: pointer; font-weight: 500; color: #cbd5e1; transition: 0.2s; text-align: left;
+            border-radius: 10px; cursor: pointer; font-weight: 600; color: #cbd5e1; transition: 0.2s; text-align: left;
+            font-family: 'Yuyu', cursive, sans-serif;
         }
         .quiz-btn:hover { background: #312e81; color: #f43f5e; border-color: #f43f5e; }
         .quiz-feedback { margin-top: 15px; font-weight: 600; font-size: 14px; text-align: center; }
@@ -80,14 +87,13 @@
         .envelope.open ~ .flower-bloom { transform: translate(-50%, -120%) scale(1.2); }
         .letter-content {
             display: none; background: #0f172a; padding: 22px; border-radius: 10px;
-            text-align: left; margin-top: 15px; font-size: 14px; line-height: 1.8;
+            text-align: left; margin-top: 15px; font-size: 15px; line-height: 1.8;
             color: #cbd5e1; border: 1px dashed #f43f5e; white-space: pre-line; min-height: 140px;
         }
         .typewriter-cursor::after { content: '|'; animation: blink 0.7s infinite; color: #f43f5e; font-weight: bold; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         .wish-jar-container { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         
-        /* Guna GIF untuk gantikan ikon balang lama */
         .jar-gif { width: 80px; height: 80px; object-fit: contain; animation: bounceJar 2s infinite alternate; }
         @keyframes bounceJar { from { transform: translateY(0); } to { transform: translateY(-6px); } }
         .jar-gif:hover { transform: scale(1.08); }
@@ -106,10 +112,11 @@
         .mystery-box:hover { transform: scale(1.02); }
         .mystery-result { display: none; margin-top: 15px; font-size: 16px; color: #fb7185; font-weight: 500; }
         .passcode-box { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
-        .passcode-input { padding: 10px 15px; border-radius: 10px; border: 2px solid #334155; background: #0f172a; color: white; outline: none; font-size: 15px; width: 200px; text-align: center; }
+        .passcode-input { padding: 10px 15px; border-radius: 10px; border: 2px solid #334155; background: #0f172a; color: white; outline: none; font-size: 15px; width: 200px; text-align: center; font-family: 'Yuyu', cursive, sans-serif; }
         .panic-btn {
             background: #0f172a; color: #fff; border: 2px solid #334155; padding: 12px 20px;
             border-radius: 10px; font-weight: 600; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-family: 'Yuyu', cursive, sans-serif;
         }
         .panic-btn:hover { background: #334155; }
         .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; justify-items: center; }
@@ -132,7 +139,7 @@
     <!-- Prank Modal -->
     <div class="modal-overlay" id="warningModal">
         <div class="modal-box">
-            <h2>Surprise? 🥷</h2>
+            <h2>Surprise!! 🤍</h2>
             <p id="prankText">suprise! sorry ni je aku mampu buat utk celebrate your special day</p>
             <div class="btn-group">
                 <button class="btn" onclick="startExperience()">hope you had fun today</button>
@@ -152,7 +159,7 @@
 
     <!-- Main Content -->
     <div class="main-container" id="mainContainer">
-        <h1 class="main-title">Happy Birthday Areeq 🎂</h1>
+        <h1 class="main-title">Happy Birthday Areeq 🤍</h1>
 
         <!-- Multi-Question Quiz Section -->
         <div class="section-box quiz-container">
@@ -162,7 +169,7 @@
 
         <!-- Letter Section -->
         <div class="section-box" id="letterSection" style="opacity: 0.4; pointer-events: none; transition: 0.5s;">
-            <h2 class="section-title">Birthday Wish <span style="font-size: 12px; color:#94a3b8;" id="lockStatus">(Jawab semua soalan dulu)</span></h2>
+            <h2 class="section-title">Birthday Wish <span style="font-size: 12px; color:#94a3b8;" id="lockStatus">(ko jawab ko dpt bukak)</span></h2>
             <div class="flower-bloom" id="flowerBloom">💌✨</div>
             <div class="envelope" id="envelope" onclick="openLetter()">
                 <div class="envelope-flap"></div>
@@ -171,14 +178,13 @@
             <div class="letter-content typewriter-cursor" id="letterContent"></div>
         </div>
 
-        <!-- Wish Jar Section (Menggunakan GIF) -->
+        <!-- Wish Jar Section -->
         <div class="section-box">
             <h2 class="section-title">Unspoken Words</h2>
-            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">Tekan balang ni untuk tengok apa yang aku nak cakap:</p>
+            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">ni kata2 yang aku tak sempat nak ungkap lahh drama</p>
             <div class="wish-jar-container" onclick="getRandomWish()">
-                <!-- Nota: Tukar link GIF bawah ni dengan link GIF pilihan awak (contoh dari Tenor/Giphy) -->
                 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXJnNHkxM3J5Mzh3ejBnY3R1MWdvazB6dTZwMjVqc3MzcnhxOGo1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iY25xIloX4bkwhcJJG/giphy.gif" class="jar-gif" alt="Jar GIF">
-                <div class="wish-note-display" id="wishDisplay">"ni kata2 yg aku tak sempat nak ungkap lahhh drama nya"</div>
+                <div class="wish-note-display" id="wishDisplay">"tekan satu2"</div>
             </div>
         </div>
 
@@ -197,7 +203,7 @@
             <button class="panic-btn" onclick="triggerPanic()">try la</button>
         </div>
 
-        <!-- Polaroid Gallery Section (Benar-benar Hidden / Display: None kalau belum unlock) -->
+        <!-- Polaroid Gallery Section -->
         <div class="section-box">
             <h2 class="section-title">Our Museum 📸</h2>
             <p style="font-size: 13px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
@@ -207,7 +213,6 @@
             </div>
             <p id="passcodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 14px;"></p>
 
-            <!-- Gallery disembunyikan terus (display: none) selagi belum betul password -->
             <div class="polaroid-grid" id="polaroidGallery" style="margin-top: 25px; display: none;">
                 <div class="polaroid-card">
                     <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=300" class="polaroid-img" alt="Memory">
@@ -335,25 +340,55 @@
             confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
         }
 
-        // Panic Button - Fullscreen Spam
+        // Panic Button - Fullscreen Spam dengan Emoji & Teks Serentak
         function triggerPanic() {
-            for(let i=0; i<50; i++) {
+            const spamTexts = [
+                "i love you 🤍",
+                "jgn la selalu marah aku 😔",
+                "jaga diri okay 😿",
+                "jgn friendly gatal sgt haih 😤",
+                "guna elok2 hadiah aku bagi 🥳",
+                "jgn susahkan diri sgt 🙄",
+                "byebye areeq ☹️",
+                "mana aci org lain dpt senang, aku susah ish",
+                "comel kan aku buat",
+                "ingat sikit tarikh first date"
+            ];
+
+            for(let i=0; i<45; i++) {
                 setTimeout(() => {
                     const spam = document.createElement('div');
-                    spam.innerHTML = ['👀','🥺','💭','✨','💌','💥','❤️'][Math.floor(Math.random()*7)];
+                    const isText = Math.random() > 0.4;
+                    
+                    if (isText) {
+                        spam.innerHTML = spamTexts[Math.floor(Math.random() * spamTexts.length)];
+                        spam.style.fontSize = (Math.random() * 12 + 14) + 'px';
+                        spam.style.background = 'rgba(30, 41, 59, 0.9)';
+                        spam.style.padding = '6px 12px';
+                        spam.style.borderRadius = '8px';
+                        spam.style.border = '1px solid #f43f5e';
+                        spam.style.color = '#f8fafc';
+                        spam.style.fontWeight = '600';
+                        spam.style.fontFamily = "'Yuyu', cursive, sans-serif";
+                    } else {
+                        spam.innerHTML = ['🤍','🥺','💭','✨','💌','💥','❤️'][Math.floor(Math.random()*7)];
+                        spam.style.fontSize = (Math.random() * 32 + 22) + 'px';
+                    }
+
                     spam.style.position = 'fixed';
-                    spam.style.left = Math.random() * 95 + 'vw';
-                    spam.style.top = Math.random() * 95 + 'vh';
-                    spam.style.fontSize = (Math.random() * 35 + 25) + 'px';
+                    spam.style.left = Math.random() * 85 + 'vw';
+                    spam.style.top = Math.random() * 85 + 'vh';
                     spam.style.zIndex = '99999';
                     spam.style.pointerEvents = 'none';
+                    spam.style.transition = '0.5s ease-out';
+                    
                     document.body.appendChild(spam);
-                    setTimeout(() => spam.remove(), 1500);
-                }, i * 30);
+                    setTimeout(() => spam.remove(), 1600);
+                }, i * 35);
             }
         }
 
-        // Passcode - Benar-benar unlock (tukar display jadi grid)
+        // Passcode
         function checkPasscode() {
             const val = document.getElementById('passcodeInput').value.trim();
             const feedback = document.getElementById('passcodeFeedback');
@@ -362,7 +397,7 @@
             if (val === "2104" || val.toLowerCase() === "first date") { 
                 feedback.style.color = "#4ade80";
                 feedback.innerHTML = "nasib baik laaa masih ingat";
-                gallery.style.display = "grid"; // Munculkan penuh selepas betul
+                gallery.style.display = "grid";
                 confetti({ particleCount: 80, spread: 70 });
             } else {
                 feedback.style.color = "#f87171";
@@ -411,7 +446,7 @@ Jujur, ada hari-hari di mana aku rindu gelagat bodoh kita, rindu cara kita berce
 
 Kalau rindu tu datang, baca balik website ni. Have a good one, Areeq. 
 
-— [Nama Awak]`;
+— [ailia 🐈]`;
 
         let isLetterOpen = false;
         function openLetter() {
