@@ -16,7 +16,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Yuyu', cursive, sans-serif;
-            font-size: 18px; /* Saiz font teks umum */
+            font-size: 18px;
             background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), url('bg-ghost.png');
             background-repeat: repeat;
             background-size: auto;
@@ -52,7 +52,6 @@
             font-family: 'Yuyu', cursive, sans-serif;
         }
         .btn:hover { background: #478271; transform: scale(1.05); }
-        /* Butang "lol ok" yang lari-lari */
         .btn-prank { background: #334155; color: #cbd5e1; box-shadow: none; position: absolute; transition: 0.1s ease-out; font-size: 16px; }
         .btn-ok { background: #5A9E8A; font-size: 16px; }
 
@@ -254,7 +253,7 @@
         const quizData = [
             {
                 q: "1. One thing yang pernah buat aku nangis bila dengar?",
-                options: ["A. kau accident", "B. mimpi kau dah takde 💭", "C. kita tak jadi keluar"],
+                options: ["A. kau accident", "B. mimpi kau dah takde", "C. kita tak jadi keluar"],
                 answer: 1
             },
             {
@@ -315,8 +314,8 @@
 
         // Wish Jar
         const wishes = [
-            "“tengok website ni, tak rasa rindu kat kita ke? 💭”",
-            "“aku harap kau sedar yang kau berubah sangat..✨”",
+            "“tengok website ni, tak rasa rindu kat kita ke?”",
+            "“aku harap kau sedar yang kau berubah sangat..”",
             "“goodluck palapes, goodluck giso, goodluck in future okay..”",
             "“aku yakin kau dah happy skrg sbb bebas, aku rindu kau tau..”",
             "“thankyou family kau sbb pernah terima aku sekejap hehe”",
@@ -374,7 +373,7 @@
                         spam.style.fontWeight = '600';
                         spam.style.fontFamily = "'Yuyu', cursive, sans-serif";
                     } else {
-                        spam.innerHTML = ['👻','🤍','🥺','💭','✨','💌','💥','❤️'][Math.floor(Math.random()*8)];
+                        spam.innerHTML = ['🤍','🐈','☹️','❤️','🤍','🐈','☹️','❤️'][Math.floor(Math.random()*8)];
                         spam.style.fontSize = (Math.random() * 24 + 18) + 'px';
                     }
 
@@ -408,13 +407,13 @@
             }
         }
 
-        // Prank Modal (Butang "lol ok" yang lari-lari)
+        // Prank Modal (Kecoh & Lari-lari original)
         let prankClicks = 0;
         const prankMessages = [
-            "eh nak tekan 'lol ok' konon, cuba try kejar tengok",
-            "wehh penat sia aku buat, takkan nak lepas senang je",
-            "mana boleh escape, tekan je 'hope you had fun today' tu cepat",
-            "isy degil betullah nak tekan 'lol ok' jugak kan"
+            "eh ko, tekan jela yg tu",
+            "wehh penat sia aku buat, kau taknak pulak hmm",
+            "tekan jela, bukannya aku pukul pun",
+            "tekan la, aku buat full effort ni"
         ];
         
         function movePrankButton() {
@@ -429,7 +428,8 @@
                 movePrankButton();
             } else {
                 document.getElementById('prankBtn').style.display = 'none';
-                document.getElementById('prankText').innerHTML = "ha tak lari pun kan? Dah tekan 'hope you had fun today' kat sebelah tu cepat haihh 😂";
+                document.getElementById('prankText').innerHTML = "dah dah tengok je haihh";
+                setTimeout(startExperience, 1200);
             }
         }
 
