@@ -16,7 +16,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Yuyu', cursive, sans-serif;
-            font-size: 18px;
+            font-size: 23px;
             background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), url('bg-ghost.png');
             background-repeat: repeat;
             background-size: auto;
@@ -25,7 +25,7 @@
             display: flex; flex-direction: column; align-items: center; padding: 20px;
         }
         .hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; }
-        .floating-heart { position: absolute; color: rgba(125, 177, 209, 0.5); font-size: 20px; animation: floatUp 6s linear infinite; }
+        .floating-heart { position: absolute; color: rgba(125, 177, 209, 0.5); font-size: 24px; animation: floatUp 6s linear infinite; }
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
             50% { opacity: 0.8; }
@@ -38,38 +38,38 @@
         }
         .modal-box {
             background: #1e293b; padding: 35px 25px; border-radius: 20px; text-align: center;
-            max-width: 380px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            max-width: 400px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             border: 2px solid #7DB1D1; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .modal-box h2 { color: #7DB1D1; font-size: 28px; margin-bottom: 10px; font-weight: 700; }
-        .modal-box p { font-size: 16px; color: #cbd5e1; margin-bottom: 25px; line-height: 1.6; }
+        .modal-box h2 { color: #7DB1D1; font-size: 32px; margin-bottom: 10px; font-weight: 700; }
+        .modal-box p { font-size: 21px; color: #cbd5e1; margin-bottom: 25px; line-height: 1.6; }
         .btn-group { display: flex; gap: 15px; justify-content: center; position: relative; min-height: 55px; align-items: center; }
         .btn {
             background: #5A9E8A; color: white; border: none; padding: 12px 22px;
             border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.2s;
-            box-shadow: 0 4px 15px rgba(90, 158, 138, 0.3); font-size: 16px; z-index: 5;
+            box-shadow: 0 4px 15px rgba(90, 158, 138, 0.3); font-size: 20px; z-index: 5;
             font-family: 'Yuyu', cursive, sans-serif;
         }
         .btn:hover { background: #478271; transform: scale(1.05); }
-        .btn-prank { background: #334155; color: #cbd5e1; box-shadow: none; position: absolute; transition: 0.1s ease-out; font-size: 16px; }
-        .btn-ok { background: #5A9E8A; font-size: 16px; }
+        .btn-prank { background: #334155; color: #cbd5e1; box-shadow: none; position: absolute; transition: 0.1s ease-out; font-size: 20px; }
+        .btn-ok { background: #5A9E8A; font-size: 20px; }
 
         .main-container { display: none; width: 100%; max-width: 800px; z-index: 10; text-align: center; padding-bottom: 80px; animation: fadeIn 1s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        h1.main-title { font-size: 40px; color: #7DB1D1; margin: 15px 0; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        h1.main-title { font-size: 46px; color: #7DB1D1; margin: 15px 0; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .section-box { background: #1e293b; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 30px; border: 1px solid #334155; position: relative; overflow: hidden; }
-        .section-title { font-size: 22px; color: #7DB1D1; margin-bottom: 20px; font-weight: 700; }
+        .section-title { font-size: 28px; color: #7DB1D1; margin-bottom: 20px; font-weight: 700; }
         .quiz-container { text-align: left; }
-        .quiz-question { font-weight: 600; font-size: 17px; color: #e2e8f0; margin-bottom: 15px; }
+        .quiz-question { font-weight: 600; font-size: 22px; color: #e2e8f0; margin-bottom: 15px; }
         .quiz-options { display: flex; flex-direction: column; gap: 10px; }
         .quiz-btn {
             background: #0f172a; border: 2px solid #334155; padding: 12px 18px;
             border-radius: 10px; cursor: pointer; font-weight: 600; color: #cbd5e1; transition: 0.2s; text-align: left;
-            font-family: 'Yuyu', cursive, sans-serif; font-size: 16px;
+            font-family: 'Yuyu', cursive, sans-serif; font-size: 21px;
         }
         .quiz-btn:hover { background: #1e293b; color: #7DB1D1; border-color: #7DB1D1; }
-        .quiz-feedback { margin-top: 15px; font-weight: 600; font-size: 16px; text-align: center; }
+        .quiz-feedback { margin-top: 15px; font-weight: 600; font-size: 21px; text-align: center; }
         .envelope {
             cursor: pointer; width: 140px; height: 95px; background: #7DB1D1;
             margin: 0 auto 15px auto; position: relative; border-radius: 0 0 10px 10px;
@@ -89,7 +89,7 @@
         .envelope.open ~ .flower-bloom { transform: translate(-50%, -120%) scale(1.2); }
         .letter-content {
             display: none; background: #0f172a; padding: 22px; border-radius: 10px;
-            text-align: left; margin-top: 15px; font-size: 16px; line-height: 1.8;
+            text-align: left; margin-top: 15px; font-size: 21px; line-height: 1.8;
             color: #cbd5e1; border: 1px dashed #5A9E8A; white-space: pre-line; min-height: 140px;
         }
         .typewriter-cursor::after { content: '|'; animation: blink 0.7s infinite; color: #5A9E8A; font-weight: bold; }
@@ -102,35 +102,35 @@
 
         .wish-note-display {
             margin-top: 15px; background: #0f172a; padding: 15px 20px; border-radius: 10px;
-            border: 1px solid #334155; font-size: 16px;
+            border: 1px solid #334155; font-size: 21px;
             color: #7DB1D1; min-height: 60px; display: flex; align-items: center;
-            justify-content: center; text-align: center; width: 100%; max-width: 450px;
+            justify-content: center; text-align: center; width: 100%; max-width: 480px;
         }
         .mystery-box {
             background: linear-gradient(135deg, #5A9E8A, #7DB1D1); color: white; padding: 18px;
-            border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 17px;
+            border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 22px;
             box-shadow: 0 4px 12px rgba(90, 158, 138, 0.3); transition: 0.3s;
         }
         .mystery-box:hover { transform: scale(1.02); }
-        .mystery-result { display: none; margin-top: 15px; font-size: 16px; color: #7DB1D1; font-weight: 500; }
+        .mystery-result { display: none; margin-top: 15px; font-size: 21px; color: #7DB1D1; font-weight: 500; }
         .passcode-box { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
-        .passcode-input { padding: 10px 15px; border-radius: 10px; border: 2px solid #334155; background: #0f172a; color: white; outline: none; font-size: 16px; width: 200px; text-align: center; font-family: 'Yuyu', cursive, sans-serif; }
+        .passcode-input { padding: 12px 18px; border-radius: 10px; border: 2px solid #334155; background: #0f172a; color: white; outline: none; font-size: 21px; width: 220px; text-align: center; font-family: 'Yuyu', cursive, sans-serif; }
         .panic-btn {
             background: #0f172a; color: #fff; border: 2px solid #334155; padding: 12px 20px;
             border-radius: 10px; font-weight: 600; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            font-family: 'Yuyu', cursive, sans-serif; font-size: 16px;
+            font-family: 'Yuyu', cursive, sans-serif; font-size: 21px;
         }
         .panic-btn:hover { background: #334155; border-color: #5A9E8A; }
-        .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; justify-items: center; }
-        .polaroid-card { background: #334155; padding: 10px 10px 25px 10px; width: 170px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); transform: rotate(-2deg); transition: 0.3s ease; }
+        .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 20px; justify-items: center; }
+        .polaroid-card { background: #334155; padding: 10px 10px 25px 10px; width: 185px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); transform: rotate(-2deg); transition: 0.3s ease; }
         .polaroid-card:nth-child(even) { transform: rotate(2deg); }
         .polaroid-card:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 20; }
         .polaroid-img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: #1e293b; }
-        .polaroid-caption { font-size: 14px; color: #e2e8f0; margin-top: 10px; text-align: center; }
+        .polaroid-caption { font-size: 19px; color: #e2e8f0; margin-top: 10px; text-align: center; }
         .music-control {
-            position: fixed; bottom: 20px; right: 20px; background: #1e293b; width: 50px; height: 50px;
+            position: fixed; bottom: 20px; right: 20px; background: #1e293b; width: 55px; height: 55px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; z-index: 100; color: #7DB1D1; font-size: 18px; border: 2px solid #5A9E8A;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; z-index: 100; color: #7DB1D1; font-size: 20px; border: 2px solid #5A9E8A;
         }
     </style>
 </head>
@@ -171,11 +171,11 @@
 
         <!-- Letter Section -->
         <div class="section-box" id="letterSection" style="opacity: 0.4; pointer-events: none; transition: 0.5s;">
-            <h2 class="section-title">Birthday Wish <span style="font-size: 13px; color:#94a3b8;" id="lockStatus">(ko jawab ko dpt bukak)</span></h2>
+            <h2 class="section-title">Birthday Wish <span style="font-size: 18px; color:#94a3b8;" id="lockStatus">(ko jawab ko dpt bukak)</span></h2>
             <div class="flower-bloom" id="flowerBloom">💌✨</div>
             <div class="envelope" id="envelope" onclick="openLetter()">
                 <div class="envelope-flap"></div>
-                <div style="position: absolute; bottom: 30px; width: 100%; text-align: center; color: white; font-weight: 600; font-size: 12px;">LOCKED 🔒</div>
+                <div style="position: absolute; bottom: 30px; width: 100%; text-align: center; color: white; font-weight: 600; font-size: 16px;">LOCKED 🔒</div>
             </div>
             <div class="letter-content typewriter-cursor" id="letterContent"></div>
         </div>
@@ -183,7 +183,7 @@
         <!-- Wish Jar Section -->
         <div class="section-box">
             <h2 class="section-title">Unspoken Words</h2>
-            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 15px;">ni kata2 yang aku tak sempat nak ungkap lahh drama</p>
+            <p style="font-size: 19px; color: #94a3b8; margin-bottom: 15px;">ni kata2 yang aku tak sempat nak ungkap lahh drama</p>
             <div class="wish-jar-container" onclick="getRandomWish()">
                 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXJnNHkxM3J5Mzh3ejBnY3R1MWdvazB6dTZwMjVqc3MzcnhxOGo1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iY25xIloX4bkwhcJJG/giphy.gif" class="jar-gif" alt="Jar GIF">
                 <div class="wish-note-display" id="wishDisplay">"tekan satu2"</div>
@@ -193,27 +193,27 @@
         <!-- Mystery Box Section -->
         <div class="section-box">
             <h2 class="section-title">Suprise Box</h2>
-            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 15px;">tempat yang aku dah beli and book :(</p>
+            <p style="font-size: 19px; color: #94a3b8; margin-bottom: 15px;">tempat yang aku dah beli and book :(</p>
             <div class="mystery-box" onclick="openMysteryBox()">bukak laa hehe</div>
-            <div class="mystery-result" id="mysteryResult">🎁 <em>"semua link2 nanti aku bagi kalau aku masih ingat hahah"</em></div>
+            <div class="mystery-result" id="mysteryResult">🎁 Kupon tebus: <em>"semua link2 nanti aku bagi kalau aku masih ingat hahah"</em> 🧋</div>
         </div>
 
         <!-- Panic / Fullscreen Spam Button -->
         <div class="section-box">
             <h2 class="section-title">Warning ⚠️</h2>
-            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 10px;">aku try buat nak nampak comel sweet tapi dah jadi ex mcm kelakar</p>
+            <p style="font-size: 19px; color: #94a3b8; margin-bottom: 10px;">aku try buat nak nampak comel sweet tapi dah jadi ex mcm kelakar</p>
             <button class="panic-btn" onclick="triggerPanic()">try la</button>
         </div>
 
         <!-- Polaroid Gallery Section -->
         <div class="section-box">
             <h2 class="section-title">Our Museum 📸</h2>
-            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
+            <p style="font-size: 19px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
             <div class="passcode-box">
                 <input type="password" class="passcode-input" id="passcodeInput" placeholder="Masukkan Passcode...">
-                <button class="btn" onclick="checkPasscode()" style="padding: 10px 18px; font-size: 15px;">Submit</button>
+                <button class="btn" onclick="checkPasscode()" style="padding: 12px 20px; font-size: 20px;">Submit</button>
             </div>
-            <p id="passcodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 14px;"></p>
+            <p id="passcodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 19px;"></p>
 
             <div class="polaroid-grid" id="polaroidGallery" style="margin-top: 25px; display: none;">
                 <div class="polaroid-card">
@@ -253,7 +253,7 @@
         const quizData = [
             {
                 q: "1. One thing yang pernah buat aku nangis bila dengar?",
-                options: ["A. kau accident", "B. mimpi kau dah takde", "C. kita tak jadi keluar"],
+                options: ["A. kau accident", "B. mimpi kau dah takde 💭", "C. kita tak jadi keluar"],
                 answer: 1
             },
             {
@@ -283,7 +283,7 @@
                 box.innerHTML = html;
             } else {
                 quizPassed = true;
-                box.innerHTML = `<div style="color: #5A9E8A; font-weight: 600; text-align: center; font-size: 16px;">kay, ingat pulak..</div>`;
+                box.innerHTML = `<div style="color: #5A9E8A; font-weight: 600; text-align: center; font-size: 21px;">kay, ingat pulak..</div>`;
                 
                 const letterSec = document.getElementById('letterSection');
                 letterSec.style.opacity = "1";
@@ -314,8 +314,8 @@
 
         // Wish Jar
         const wishes = [
-            "“tengok website ni, tak rasa rindu kat kita ke?”",
-            "“aku harap kau sedar yang kau berubah sangat..”",
+            "“tengok website ni, tak rasa rindu kat kita ke? 💭”",
+            "“aku harap kau sedar yang kau berubah sangat..✨”",
             "“goodluck palapes, goodluck giso, goodluck in future okay..”",
             "“aku yakin kau dah happy skrg sbb bebas, aku rindu kau tau..”",
             "“thankyou family kau sbb pernah terima aku sekejap hehe”",
@@ -342,7 +342,7 @@
             confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
         }
 
-        // Panic Button - Fullscreen Spam
+        // Panic Button - 100% Keluar Ayat Saja Tanpa Emoji Rambang Menghalang
         function triggerPanic() {
             const spamTexts = [
                 "i love you 🤍",
@@ -357,36 +357,30 @@
                 "ingat sikit tarikh first date"
             ];
 
-            for(let i=0; i<45; i++) {
+            for(let i=0; i<35; i++) {
                 setTimeout(() => {
                     const spam = document.createElement('div');
-                    const isText = Math.random() > 0.4;
-                    
-                    if (isText) {
-                        spam.innerHTML = spamTexts[Math.floor(Math.random() * spamTexts.length)];
-                        spam.style.fontSize = (Math.random() * 8 + 13) + 'px';
-                        spam.style.background = 'rgba(30, 41, 59, 0.9)';
-                        spam.style.padding = '6px 12px';
-                        spam.style.borderRadius = '8px';
-                        spam.style.border = '1px solid #7DB1D1';
-                        spam.style.color = '#f8fafc';
-                        spam.style.fontWeight = '600';
-                        spam.style.fontFamily = "'Yuyu', cursive, sans-serif";
-                    } else {
-                        spam.innerHTML = ['🤍','🐈','☹️','❤️','🤍','🐈','☹️','❤️'][Math.floor(Math.random()*8)];
-                        spam.style.fontSize = (Math.random() * 24 + 18) + 'px';
-                    }
+                    // Guna 100% ayat awak, tiada lagi pilihan emoji rawak
+                    spam.innerHTML = spamTexts[Math.floor(Math.random() * spamTexts.length)];
+                    spam.style.fontSize = (Math.random() * 4 + 16) + 'px';
+                    spam.style.background = 'rgba(30, 41, 59, 0.95)';
+                    spam.style.padding = '8px 14px';
+                    spam.style.borderRadius = '8px';
+                    spam.style.border = '1px solid #7DB1D1';
+                    spam.style.color = '#f8fafc';
+                    spam.style.fontWeight = '600';
+                    spam.style.fontFamily = "'Yuyu', cursive, sans-serif";
 
                     spam.style.position = 'fixed';
-                    spam.style.left = Math.random() * 85 + 'vw';
-                    spam.style.top = Math.random() * 85 + 'vh';
+                    spam.style.left = Math.random() * 80 + 'vw';
+                    spam.style.top = Math.random() * 80 + 'vh';
                     spam.style.zIndex = '99999';
                     spam.style.pointerEvents = 'none';
                     spam.style.transition = '0.5s ease-out';
                     
                     document.body.appendChild(spam);
                     setTimeout(() => spam.remove(), 1600);
-                }, i * 35);
+                }, i * 40);
             }
         }
 
@@ -407,7 +401,7 @@
             }
         }
 
-        // Prank Modal (Kecoh & Lari-lari original)
+        // Prank Modal
         let prankClicks = 0;
         const prankMessages = [
             "eh ko, tekan jela yg tu",
