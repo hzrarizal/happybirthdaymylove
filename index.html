@@ -141,7 +141,7 @@
     <!-- Prank Modal -->
     <div class="modal-overlay" id="warningModal">
         <div class="modal-box">
-            <h2>Surprise!! 🤍</h2>
+            <h2>Surprise!!</h2>
             <p id="prankText">suprise! sorry ni je aku mampu buat utk celebrate your special day</p>
             <div class="btn-group">
                 <button class="btn btn-ok" onclick="startExperience()">hope you had fun today</button>
@@ -195,7 +195,7 @@
             <h2 class="section-title">Suprise Box</h2>
             <p style="font-size: 19px; color: #94a3b8; margin-bottom: 15px;">tempat yang aku dah beli and book :(</p>
             <div class="mystery-box" onclick="openMysteryBox()">bukak laa hehe</div>
-            <div class="mystery-result" id="mysteryResult">🎁 Kupon tebus: <em>"semua link2 nanti aku bagi kalau aku masih ingat hahah"</em> 🧋</div>
+            <div class="mystery-result" id="mysteryResult">🎁 <em>"semua link2 nanti aku bagi kalau aku masih ingat hahah"</em></div>
         </div>
 
         <!-- Panic / Fullscreen Spam Button -->
@@ -242,7 +242,7 @@
         setInterval(() => {
             const h = document.createElement('div');
             h.classList.add('floating-heart');
-            h.innerHTML = ['👻', '✨', '💭', '🎃', '💫'][Math.floor(Math.random()*5)];
+            h.innerHTML = ['🤍' , '🐈' , '☹️' , '❤️'][Math.floor(Math.random()*5)];
             h.style.left = Math.random() * 100 + 'vw';
             h.style.animationDuration = (Math.random() * 4 + 4) + 's';
             document.getElementById('heartsContainer').appendChild(h);
@@ -253,7 +253,7 @@
         const quizData = [
             {
                 q: "1. One thing yang pernah buat aku nangis bila dengar?",
-                options: ["A. kau accident", "B. mimpi kau dah takde 💭", "C. kita tak jadi keluar"],
+                options: ["A. kau accident", "B. mimpi kau dah takde", "C. kita tak jadi keluar"],
                 answer: 1
             },
             {
@@ -314,8 +314,8 @@
 
         // Wish Jar
         const wishes = [
-            "“tengok website ni, tak rasa rindu kat kita ke? 💭”",
-            "“aku harap kau sedar yang kau berubah sangat..✨”",
+            "“tengok website ni, tak rasa rindu kat kita ke?”",
+            "“aku harap kau sedar yang kau berubah sangat..”",
             "“goodluck palapes, goodluck giso, goodluck in future okay..”",
             "“aku yakin kau dah happy skrg sbb bebas, aku rindu kau tau..”",
             "“thankyou family kau sbb pernah terima aku sekejap hehe”",
