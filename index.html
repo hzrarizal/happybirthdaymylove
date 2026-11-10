@@ -161,14 +161,22 @@
         </div>
     </div>
 
-    <!-- Background Music (Lagu Pulang) -->
-    <audio id="bgMusic" loop>
-        <source src="pulang.mp3" type="audio/mpeg">
-    </audio>
-
-    <div class="music-control" id="musicToggle" onclick="toggleMusic()" style="display: none;">
-        <i class="fa-solid fa-music" id="musicIcon"></i>
-    </div>
+   <!-- Background Music (Lagu Pulang) -->
+<audio id="bgMusic" loop preload="auto">
+    <source src="pulang.mp3" type="audio/mp3">
+    <source src="pulang.mp3" type="audio/mpeg">
+</audio>
+<script>
+    // Auto-trigger music on first user interaction anywhere on the page
+    document.addEventListener('click', function() {
+        var music = document.getElementById('bgMusic');
+        if (music && music.paused) {
+            music.play().catch(function(error) {
+                console.log("Audio play blocked or failed:", error);
+            });
+        }
+    }, { once: true });
+</script>
 
     <!-- Main Content -->
     <div class="main-container" id="mainContainer">
@@ -521,6 +529,7 @@
 
         // Letter Text
         const letterText = `Areeq,
+
 happy birthday areeq ! aku excited sangat nak celebrate birthday kau when kita in relay,
 aku plan macam-macam untuk balas jasa kau and untuk berterima kasih masih sanggup untuk kekal dgn aku.
 tapi sape sangka, aku hanya mampu merancang je. maafkan aku ye areeq sbb keep memaksa kau utk bersama dgn aku.
