@@ -28,7 +28,7 @@
         }
         .modal-box {
             background: #1e293b; padding: 35px 25px; border-radius: 20px; text-align: center;
-            max-width: 400px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            max-width: 450px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             border: 2px solid #7DB1D1; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
@@ -37,26 +37,25 @@
         
         .btn-group { 
             display: flex; 
-            gap: 20px; 
+            gap: 15px; 
             justify-content: center; 
             align-items: center; 
             position: relative; 
-            min-height: 65px;
+            min-height: 70px;
             margin-top: 15px;
         }
         .btn {
-            background: #5A9E8A; color: white; border: none; padding: 12px 22px;
+            background: #5A9E8A; color: white; border: none; padding: 12px 20px;
             border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.2s;
-            box-shadow: 0 4px 15px rgba(90, 158, 138, 0.3); font-size: 20px; z-index: 5;
+            box-shadow: 0 4px 15px rgba(90, 158, 138, 0.3); font-size: 19px; z-index: 5;
             font-family: 'Yuyu', cursive, sans-serif;
         }
         .btn:hover { background: #478271; transform: scale(1.05); }
         .btn-prank { 
             background: #334155; color: #cbd5e1; box-shadow: none; 
             position: absolute; 
-            right: 25px;
             transition: 0.1s ease-out; 
-            font-size: 20px; 
+            font-size: 19px; 
         }
 
         .main-container { display: none; width: 100%; max-width: 800px; z-index: 10; text-align: center; padding-bottom: 80px; animation: fadeIn 1s ease; }
@@ -369,7 +368,7 @@
         
         function movePrankButton() {
             const prankBtn = document.getElementById('prankBtn');
-            prankBtn.style.transform = `translate(${Math.random() * 120 - 60}px, ${Math.random() * 50 - 25}px)`;
+            prankBtn.style.transform = `translate(${Math.random() * 100 - 50}px, ${Math.random() * 40 - 20}px)`;
         }
 
         function handlePrankClick() {
