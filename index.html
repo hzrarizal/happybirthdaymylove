@@ -34,7 +34,16 @@
         @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         .modal-box h2 { color: #7DB1D1; font-size: 32px; margin-bottom: 10px; font-weight: 700; }
         .modal-box p { font-size: 21px; color: #cbd5e1; margin-bottom: 25px; line-height: 1.6; }
-        .btn-group { display: flex; gap: 15px; justify-content: center; position: relative; min-height: 55px; align-items: center; }
+        
+        .btn-group { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            align-items: center; 
+            position: relative; 
+            min-height: 65px;
+            margin-top: 15px;
+        }
         .btn {
             background: #5A9E8A; color: white; border: none; padding: 12px 22px;
             border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.2s;
@@ -42,8 +51,13 @@
             font-family: 'Yuyu', cursive, sans-serif;
         }
         .btn:hover { background: #478271; transform: scale(1.05); }
-        .btn-prank { background: #334155; color: #cbd5e1; box-shadow: none; position: absolute; transition: 0.1s ease-out; font-size: 20px; }
-        .btn-ok { background: #5A9E8A; font-size: 20px; }
+        .btn-prank { 
+            background: #334155; color: #cbd5e1; box-shadow: none; 
+            position: absolute; 
+            right: 25px;
+            transition: 0.1s ease-out; 
+            font-size: 20px; 
+        }
 
         .main-container { display: none; width: 100%; max-width: 800px; z-index: 10; text-align: center; padding-bottom: 80px; animation: fadeIn 1s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -344,7 +358,7 @@
             }
         }
 
-        // Prank Modal (Kembali Berfungsi Sepenuhnya Tanpa Stuck)
+        // Prank Modal
         let prankClicks = 0;
         const prankMessages = [
             "eh ko, tekan jela yg tu",
@@ -355,7 +369,7 @@
         
         function movePrankButton() {
             const prankBtn = document.getElementById('prankBtn');
-            prankBtn.style.transform = `translate(${Math.random() * 160 - 80}px, ${Math.random() * 80 - 40}px)`;
+            prankBtn.style.transform = `translate(${Math.random() * 120 - 60}px, ${Math.random() * 50 - 25}px)`;
         }
 
         function handlePrankClick() {
