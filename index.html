@@ -221,26 +221,34 @@
             </div>
         </div>
 
-        <!-- 2 VIDEO BESAR DI BAWAH -->
-        <div class="section-box" style="text-align: center;">
-            <h2 class="section-title">Video Kenangan Kita 🎥</h2>
-            
-            <!-- Video 1 -->
-            <div style="margin-bottom: 30px;">
-                <video controls style="width: 100%; max-width: 650px; max-height: 500px; border-radius: 12px; background: #000; object-fit: contain; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
-                    <source src="1.mp4" type="video/mp4">
-                    Browser awak tidak menyokong video ini.
-                </video>
-                <div style="color: #cbd5e1; margin-top: 10px; font-size: 19px;">first relay kita yang happyyy gilaa hehe 🤍</div>
+        <!-- 2 VIDEO BESAR DI BAWAH (BERKUNCI DENGAN PASSWORD BARU) -->
+        <div class="section-box">
+            <h2 class="section-title">Our Memory🎥</h2>
+            <p style="font-size: 19px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode... (Hint: tarikh break kita):</p>
+            <div class="passcode-box">
+                <input type="password" class="passcode-input" id="videoPasscodeInput" placeholder="Masukkan Passcode...">
+                <button class="btn" onclick="checkVideoPasscode()" style="padding: 12px 20px; font-size: 20px;">Submit</button>
             </div>
+            <p id="videoPasscodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 19px;"></p>
 
-            <!-- Video 2 -->
-            <div>
-                <video controls style="width: 100%; max-width: 650px; max-height: 500px; border-radius: 12px; background: #000; object-fit: contain; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
-                    <source src="2.mp4" type="video/mp4">
-                    Browser awak tidak menyokong video ini.
-                </video>
-                <div style="color: #cbd5e1; margin-top: 10px; font-size: 19px;">ni second date kita yang aku suka gila :( 🤍</div>
+            <div id="videoContainerSection" style="margin-top: 25px; display: none; text-align: center;">
+                <!-- Video 1 -->
+                <div style="margin-bottom: 30px;">
+                    <video controls style="width: 100%; max-width: 650px; max-height: 500px; border-radius: 12px; background: #000; object-fit: contain; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                        <source src="1.mp4" type="video/mp4">
+                        Browser awak tidak menyokong video ini.
+                    </video>
+                    <div style="color: #cbd5e1; margin-top: 10px; font-size: 19px;">first relay kita yang happyyy gilaa hehe 🤍</div>
+                </div>
+
+                <!-- Video 2 -->
+                <div>
+                    <video controls style="width: 100%; max-width: 650px; max-height: 500px; border-radius: 12px; background: #000; object-fit: contain; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                        <source src="2.mp4" type="video/mp4">
+                        Browser awak tidak menyokong video ini.
+                    </video>
+                    <div style="color: #cbd5e1; margin-top: 10px; font-size: 19px;">ni second date kita yang aku suka gila :( 🤍</div>
+                </div>
             </div>
         </div>
 
@@ -340,7 +348,7 @@
             confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
         }
 
-        // Passcode
+        // Passcode untuk Galeri Gambar
         function checkPasscode() {
             const val = document.getElementById('passcodeInput').value.trim();
             const feedback = document.getElementById('passcodeFeedback');
@@ -354,6 +362,24 @@
             } else {
                 feedback.style.color = "#f87171";
                 feedback.innerHTML = "weh... cepat gila lupa";
+            }
+        }
+
+        // Passcode untuk Video (Passcode Baru - contoh letak "1234" atau apa-apa password yang awak nak)
+        function checkVideoPasscode() {
+            const val = document.getElementById('videoPasscodeInput').value.trim();
+            const feedback = document.getElementById('videoPasscodeFeedback');
+            const vidSection = document.getElementById('videoContainerSection');
+
+            // Passcode baru untuk video boleh diubah di sini (Contoh: "secret" atau "areeq")
+            if (val === "secret" || val === "tarikh kita break tahun ni") { 
+                feedback.style.color = "#5A9E8A";
+                feedback.innerHTML = "wow..";
+                vidSection.style.display = "block";
+                confetti({ particleCount: 80, spread: 70 });
+            } else {
+                feedback.style.color = "#f87171";
+                feedback.innerHTML = "ingat balik tarikh pergi makan dgn pu2 tu";
             }
         }
 
