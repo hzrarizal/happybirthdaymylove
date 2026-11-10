@@ -289,13 +289,12 @@
                 box.innerHTML = html;
             } else {
                 quizPassed = true;
-                box.innerHTML = `<div style="color: #5A9E8A; font-weight: 600; text-align: center; font-size: 21px;">kay, ingat pulak..</div>`;
+                box.innerHTML = `<div style="color: #5A9E8A; font-weight: 600; text-align: center; font-size: 21px;">kay, ingat pulak..<br><br>baca laaa, aku buat dgn ikhlas ni tau</div>`;
                 
                 const letterSec = document.getElementById('letterSection');
                 letterSec.style.opacity = "1";
                 letterSec.style.pointerEvents = "auto";
                 document.getElementById('lockStatus').style.display = "none";
-                document.querySelector('#envelope + div').innerHTML = "baca laaa, aku buat dgn ikhlas ni tau";
 
                 confetti({ particleCount: 100, spread: 70, origin: { y: 0.4 } });
             }
