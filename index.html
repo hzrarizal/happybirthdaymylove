@@ -121,12 +121,23 @@
             font-family: 'Yuyu', cursive, sans-serif; font-size: 21px;
         }
         .panic-btn:hover { background: #334155; border-color: #5A9E8A; }
-        .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 20px; justify-items: center; }
-        .polaroid-card { background: #334155; padding: 10px 10px 25px 10px; width: 185px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); transform: rotate(-2deg); transition: 0.3s ease; }
+        .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; justify-items: center; }
+        .polaroid-card { background: #334155; padding: 10px 10px 25px 10px; width: 220px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); transform: rotate(-2deg); transition: 0.3s ease; }
         .polaroid-card:nth-child(even) { transform: rotate(2deg); }
         .polaroid-card:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 20; }
-        .polaroid-img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: #1e293b; }
-        .polaroid-caption { font-size: 19px; color: #e2e8f0; margin-top: 10px; text-align: center; }
+        .polaroid-img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; background: #1e293b; }
+        .polaroid-caption { font-size: 17px; color: #e2e8f0; margin-top: 10px; text-align: center; }
+        
+        /* CSS KHAS UNTUK VIDEO 16:9 (MELINTANG) */
+        .video-16-9-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 4px;
+            background: #1e293b;
+            border: none;
+            object-fit: cover;
+        }
+
         .music-control {
             position: fixed; bottom: 20px; right: 20px; background: #1e293b; width: 55px; height: 55px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -150,9 +161,9 @@
         </div>
     </div>
 
-    <!-- Background Music -->
+    <!-- Background Music (Lagu Pulang) -->
     <audio id="bgMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-cute.mp3" type="audio/mp3">
+        <source src="pulang.mp3" type="audio/mp3">
     </audio>
 
     <div class="music-control" id="musicToggle" onclick="toggleMusic()" style="display: none;">
@@ -205,7 +216,7 @@
             <button class="panic-btn" onclick="triggerPanic()">try la</button>
         </div>
 
-        <!-- Polaroid Gallery Section -->
+        <!-- Polaroid Gallery Section (18 Gambar & 2 Video Melintang 16:9) -->
         <div class="section-box">
             <h2 class="section-title">Our Museum 📸</h2>
             <p style="font-size: 19px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
@@ -216,23 +227,97 @@
             <p id="passcodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 19px;"></p>
 
             <div class="polaroid-grid" id="polaroidGallery" style="margin-top: 25px; display: none;">
+                
+                <!-- CONTOH GAMBAR 1 HINGGA 18 (Ganti nama fail gambar awak kat sini) -->
                 <div class="polaroid-card">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=300" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">Masa ni gelak tak ingat dunia 🤍</div>
+                    <img src="1.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">first dating eh....</div>
                 </div>
                 <div class="polaroid-card">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=300" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">Tempat last kita dating 🍜</div>
+                    <img src="2.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">aku suka gila time kau clingy gini hahaha</div>
                 </div>
                 <div class="polaroid-card">
-                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8ab2886d?w=300" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">Rindu sikit tak? 📷</div>
+                    <img src="3.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">my first meet with your family T.T</div>
                 </div>
-                <!-- KOTAK VIDEO YOUTUBE -->
                 <div class="polaroid-card">
-                    <iframe width="100%" height="150" src="https://www.youtube.com/embed/KOD_YOUTUBE_AWAK" style="border:none; border-radius:4px;" allowfullscreen></iframe>
-                    <div class="polaroid-caption">Kenangan kita 🎥</div>
+                    <img src="4.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">our moment kat ipoh</div>
                 </div>
+                <div class="polaroid-card">
+                    <img src="5.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">ni yg gado teruk last2 baik gak menyampah</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="6.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">time ni aku ckp nak jadi isteri solehah hihi</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="7.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">huaa first bunga aku dpt</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="8.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">lah first and last celebrate as couple ek</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="9.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">yang ooo yang, yanggg hahahaha gedik</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="10.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">ngade sumpah! tapi aku suka, like melting....</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="11.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">first and last jadi gato kau</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="12.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">first time nak gi genting weee</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="13.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">first time aku jadi driver thanks</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="14.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">aku hntr kau naik bas, pastu balik nangis :(</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="15.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">our first and last snow together areeq</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="16.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">sorry aku tak sempat nak buat kat kau mcm ni :(</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="17.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">masa first time kita contact semula, rindunya..</div>
+                </div>
+                <div class="polaroid-card">
+                    <img src="18.jpeg" class="polaroid-img" alt="Memory">
+                    <div class="polaroid-caption">time ni tak gb lagi, tapi aku happy sgt</div>
+                </div>
+
+                <!-- 2 VIDEO MELINTANG (16:9) -->
+                <!-- Pilihan A: Kalau video fail sendiri (.mp4) yang awak upload ke GitHub -->
+                <div class="polaroid-card">
+                    <video class="video-16-9-container" controls>
+                        <source src="1.mp4" type="video/mp4">
+                    </video>
+                    <div class="polaroid-caption">first relay kita yang happyyy gilaa hehe</div>
+                </div>
+
+                <div class="polaroid-card">
+                    <video class="video-16-9-container" controls>
+                        <source src="2.mp4" type="video/mp4">
+                    </video>
+                    <div class="polaroid-caption">ni second date kita yang aku suka gila :(</div>
+                </div>
+        
             </div>
         </div>
     </div>
@@ -242,7 +327,7 @@
         setInterval(() => {
             const h = document.createElement('div');
             h.classList.add('floating-heart');
-            h.innerHTML = ['🤍' , '🐈' , '☹️' , '❤️'][Math.floor(Math.random()*5)];
+            h.innerHTML = ['🤍' , '🐈' , '☹️' , '❤️'][Math.floor(Math.random()*4)];
             h.style.left = Math.random() * 100 + 'vw';
             h.style.animationDuration = (Math.random() * 4 + 4) + 's';
             document.getElementById('heartsContainer').appendChild(h);
@@ -342,7 +427,7 @@
             confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
         }
 
-        // Panic Button - 100% Keluar Ayat Saja Tanpa Emoji Rambang Menghalang
+        // Panic Button
         function triggerPanic() {
             const spamTexts = [
                 "i love you 🤍",
@@ -360,7 +445,6 @@
             for(let i=0; i<35; i++) {
                 setTimeout(() => {
                     const spam = document.createElement('div');
-                    // Guna 100% ayat awak, tiada lagi pilihan emoji rawak
                     spam.innerHTML = spamTexts[Math.floor(Math.random() * spamTexts.length)];
                     spam.style.fontSize = (Math.random() * 4 + 16) + 'px';
                     spam.style.background = 'rgba(30, 41, 59, 0.95)';
@@ -459,7 +543,7 @@ aku happy dpt teman kau checkup sekali dulu ;) doakan aku areeq, semoga aku bole
 semangat aku always kuat walaupun takde kau, and dpt lupakan kau. aku try slowly utk maafkan and tak berdendam.
 tipula aku tak terasa areeq, aku masih rasa luka tu, and still mencari explaination. ye kau ckp sbb kau jahat,
 but why pilih mcm ni aku still mencari jawapan. kau bukan avoidant pun areeq, kau just avoid orang yg kau taknak.
-ada banyak je solution, takpela aku harap one day ada la hikmah nya yg aku cari. aku tak menyesal kenal kau,
+ada banyak je solution, takpela aku harap one day ada la hikmah nya yg cari. aku tak menyesal kenal kau,
 aku menyesal aku approach kau dulu kalau aku tahu aku banyak sakitkan kau akhirnya.
 goodbye my favourite stranger 🐈 thankyou jadi first time aku in everything. happy birthday, kawan :)
 
