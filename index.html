@@ -223,7 +223,7 @@
 
         <!-- 2 VIDEO BESAR DI BAWAH (BERKUNCI DENGAN PASSWORD BARU) -->
         <div class="section-box">
-            <h2 class="section-title">Our Memory🎥</h2>
+            <h2 class="section-title">Our Memory 🎥</h2>
             <p style="font-size: 19px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode... (Hint: tarikh break kita):</p>
             <div class="passcode-box">
                 <input type="password" class="passcode-input" id="videoPasscodeInput" placeholder="Masukkan Passcode...">
@@ -364,13 +364,12 @@
             }
         }
 
-        // Passcode untuk Video (Passcode Baru - contoh letak "1234" atau apa-apa password yang awak nak)
+        // Passcode untuk Video (Passcode Baru - Tarikh break)
         function checkVideoPasscode() {
             const val = document.getElementById('videoPasscodeInput').value.trim();
             const feedback = document.getElementById('videoPasscodeFeedback');
             const vidSection = document.getElementById('videoContainerSection');
 
-            // Passcode baru untuk video boleh diubah di sini (Contoh: "secret" atau "areeq")
             if (val === "2309" || val === "tarikh kita break tahun ni") { 
                 feedback.style.color = "#5A9E8A";
                 feedback.innerHTML = "wow..";
