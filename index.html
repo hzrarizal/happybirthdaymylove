@@ -17,19 +17,9 @@
         body {
             font-family: 'Yuyu', cursive, sans-serif;
             font-size: 23px;
-            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), url('bg-ghost.png');
-            background-repeat: repeat;
-            background-size: auto;
             background-color: #0f172a;
             min-height: 100vh; color: #f1f5f9; overflow-x: hidden;
             display: flex; flex-direction: column; align-items: center; padding: 20px;
-        }
-        .hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; }
-        .floating-heart { position: absolute; color: rgba(125, 177, 209, 0.5); font-size: 24px; animation: floatUp 6s linear infinite; }
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -96,10 +86,7 @@
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         .wish-jar-container { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         
-        .jar-gif { width: 80px; height: 80px; object-fit: contain; animation: bounceJar 2s infinite alternate; }
-        @keyframes bounceJar { from { transform: translateY(0); } to { transform: translateY(-6px); } }
-        .jar-gif:hover { transform: scale(1.08); }
-
+        .jar-gif { width: 80px; height: 80px; object-fit: contain; }
         .wish-note-display {
             margin-top: 15px; background: #0f172a; padding: 15px 20px; border-radius: 10px;
             border: 1px solid #334155; font-size: 21px;
@@ -115,28 +102,10 @@
         .mystery-result { display: none; margin-top: 15px; font-size: 21px; color: #7DB1D1; font-weight: 500; }
         .passcode-box { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
         .passcode-input { padding: 12px 18px; border-radius: 10px; border: 2px solid #334155; background: #0f172a; color: white; outline: none; font-size: 21px; width: 220px; text-align: center; font-family: 'Yuyu', cursive, sans-serif; }
-        .panic-btn {
-            background: #0f172a; color: #fff; border: 2px solid #334155; padding: 12px 20px;
-            border-radius: 10px; font-weight: 600; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            font-family: 'Yuyu', cursive, sans-serif; font-size: 21px;
-        }
-        .panic-btn:hover { background: #334155; border-color: #5A9E8A; }
         .polaroid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; justify-items: center; }
-        .polaroid-card { background: #334155; padding: 10px 10px 25px 10px; width: 220px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); transform: rotate(-2deg); transition: 0.3s ease; }
-        .polaroid-card:nth-child(even) { transform: rotate(2deg); }
-        .polaroid-card:hover { transform: scale(1.08) rotate(0deg) !important; z-index: 20; }
+        .polaroid-card { background: #334155; padding: 10px 10px 25px 10px; width: 220px; border-radius: 6px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
         .polaroid-img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; background: #1e293b; }
         .polaroid-caption { font-size: 17px; color: #e2e8f0; margin-top: 10px; text-align: center; }
-        
-        /* CSS KHAS UNTUK VIDEO 16:9 (MELINTANG) */
-        .video-16-9-container {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 4px;
-            background: #1e293b;
-            border: none;
-            object-fit: cover;
-        }
 
         .music-control {
             position: fixed; bottom: 20px; right: 20px; background: #1e293b; width: 55px; height: 55px;
@@ -146,8 +115,6 @@
     </style>
 </head>
 <body>
-
-    <div class="hearts-container" id="heartsContainer"></div>
 
     <!-- Prank Modal -->
     <div class="modal-overlay" id="warningModal">
@@ -161,22 +128,14 @@
         </div>
     </div>
 
-   <!-- Background Music (Lagu Pulang) -->
-<audio id="bgMusic" loop preload="auto">
-    <source src="pulang.mp3" type="audio/mp3">
-    <source src="pulang.mp3" type="audio/mpeg">
-</audio>
-<script>
-    // Auto-trigger music on first user interaction anywhere on the page
-    document.addEventListener('click', function() {
-        var music = document.getElementById('bgMusic');
-        if (music && music.paused) {
-            music.play().catch(function(error) {
-                console.log("Audio play blocked or failed:", error);
-            });
-        }
-    }, { once: true });
-</script>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="pulang.mp3" type="audio/mp3">
+        <source src="pulang.mp3" type="audio/mpeg">
+    </audio>
+    <div class="music-control" id="musicToggle" onclick="toggleMusic()" style="display: none;">
+        <i class="fa-solid fa-music" id="musicIcon"></i>
+    </div>
 
     <!-- Main Content -->
     <div class="main-container" id="mainContainer">
@@ -217,14 +176,7 @@
             <div class="mystery-result" id="mysteryResult">semua link2 nanti aku bagi kalau aku masih ingat hahah 😆</div>
         </div>
 
-        <!-- Panic / Fullscreen Spam Button -->
-        <div class="section-box">
-            <h2 class="section-title">Warning ⚠️</h2>
-            <p style="font-size: 19px; color: #94a3b8; margin-bottom: 10px;">aku try buat nak nampak comel sweet tapi dah jadi ex mcm kelakar</p>
-            <button class="panic-btn" onclick="triggerPanic()">try la</button>
-        </div>
-
-        <!-- Polaroid Gallery Section (18 Gambar & 2 Video Melintang 16:9) -->
+        <!-- Polaroid Gallery Section (18 Gambar) -->
         <div class="section-box">
             <h2 class="section-title">Our Museum 📸</h2>
             <p style="font-size: 19px; color: #94a3b8; margin-bottom: 10px;">Masukkan Passcode (Hint: tarikh first date):</p>
@@ -235,110 +187,53 @@
             <p id="passcodeFeedback" style="margin-top: 10px; font-weight: 600; font-size: 19px;"></p>
 
             <div class="polaroid-grid" id="polaroidGallery" style="margin-top: 25px; display: none;">
-                
-                <!-- CONTOH GAMBAR 1 HINGGA 18 (Ganti nama fail gambar awak kat sini) -->
-                <div class="polaroid-card">
-                    <img src="1.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">first dating eh....</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="2.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">aku suka gila time kau clingy gini hahaha</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="3.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">my first meet with your family T.T</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="4.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">our moment kat ipoh</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="5.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">ni yg gado teruk last2 baik gak menyampah</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="6.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">time ni aku ckp nak jadi isteri solehah hihi</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="7.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">huaa first bunga aku dpt</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="8.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">lah first and last celebrate as couple ek</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="9.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">yang ooo yang, yanggg hahahaha gedik</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="10.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">ngade sumpah! tapi aku suka, like melting....</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="11.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">first and last jadi gato kau</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="12.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">first time nak gi genting weee</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="13.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">first time aku jadi driver thanks</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="14.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">aku hntr kau naik bas, pastu balik nangis :(</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="15.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">our first and last snow together areeq</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="16.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">sorry aku tak sempat nak buat kat kau mcm ni :(</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="17.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">masa first time kita contact semula, rindunya..</div>
-                </div>
-                <div class="polaroid-card">
-                    <img src="18.jpeg" class="polaroid-img" alt="Memory">
-                    <div class="polaroid-caption">time ni tak gb lagi, tapi aku happy sgt</div>
-                </div>
+                <div class="polaroid-card"><img src="1.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">first dating eh....</div></div>
+                <div class="polaroid-card"><img src="2.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">aku suka gila time kau clingy gini hahaha</div></div>
+                <div class="polaroid-card"><img src="3.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">my first meet with your family T.T</div></div>
+                <div class="polaroid-card"><img src="4.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">our moment kat ipoh</div></div>
+                <div class="polaroid-card"><img src="5.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">ni yg gado teruk last2 baik gak menyampah</div></div>
+                <div class="polaroid-card"><img src="6.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">time ni aku ckp nak jadi isteri solehah hihi</div></div>
+                <div class="polaroid-card"><img src="7.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">huaa first bunga aku dpt</div></div>
+                <div class="polaroid-card"><img src="8.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">lah first and last celebrate as couple ek</div></div>
+                <div class="polaroid-card"><img src="9.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">yang ooo yang, yanggg hahahaha gedik</div></div>
+                <div class="polaroid-card"><img src="10.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">ngade sumpah! tapi aku suka, like melting....</div></div>
+                <div class="polaroid-card"><img src="11.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">first and last jadi gato kau</div></div>
+                <div class="polaroid-card"><img src="12.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">first time nak gi genting weee</div></div>
+                <div class="polaroid-card"><img src="13.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">first time aku jadi driver thanks</div></div>
+                <div class="polaroid-card"><img src="14.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">aku hntr kau naik bas, pastu balik nangis :(</div></div>
+                <div class="polaroid-card"><img src="15.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">our first and last snow together areeq</div></div>
+                <div class="polaroid-card"><img src="16.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">sorry aku tak sempat nak buat kat kau mcm ni :(</div></div>
+                <div class="polaroid-card"><img src="17.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">masa first time kita contact semula, rindunya..</div></div>
+                <div class="polaroid-card"><img src="18.jpeg" class="polaroid-img" alt="Memory"><div class="polaroid-caption">time ni tak gb lagi, tapi aku happy sgt</div></div>
+            </div>
+        </div>
 
-                <!-- 2 VIDEO MELINTANG (16:9) -->
-                <!-- 2 VIDEO BESAR (MERENTANG PENUH) -->
-                <div style="grid-column: 1 / -1; background: #1e293b; padding: 15px; border-radius: 12px; text-align: center; margin-top: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                    <video controls style="width: 100%; max-height: 500px; border-radius: 8px; background: #000; object-fit: contain;">
-                        <source src="1.mp4" type="video/mp4">
-                        Browser awak tidak menyokong video ini.
-                    </video>
-                    <div style="color: #cbd5e1; margin-top: 10px; font-size: 15px;">first relay kita yang happyyy gilaa hehe 🤍</div>
-                </div>
+        <!-- 2 VIDEO BESAR DI BAWAH (DIJAMIN LANCAR & BESAR) -->
+        <div class="section-box" style="text-align: center;">
+            <h2 class="section-title">Video Kenangan Kita 🎥</h2>
+            
+            <!-- Video 1 -->
+            <div style="margin-bottom: 30px;">
+                <video controls style="width: 100%; max-width: 650px; max-height: 500px; border-radius: 12px; background: #000; object-fit: contain; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <source src="1.mp4" type="video/mp4">
+                    Browser awak tidak menyokong video ini.
+                </video>
+                <div style="color: #cbd5e1; margin-top: 10px; font-size: 19px;">first relay kita yang happyyy gilaa hehe 🤍</div>
+            </div>
 
-                <div style="grid-column: 1 / -1; background: #1e293b; padding: 15px; border-radius: 12px; text-align: center; margin-top: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                    <video controls style="width: 100%; max-height: 500px; border-radius: 8px; background: #000; object-fit: contain;">
-                        <source src="2.mp4" type="video/mp4">
-                        Browser awak tidak menyokong video ini.
-                    </video>
-                    <div style="color: #cbd5e1; margin-top: 10px; font-size: 15px;">ni second date kita yang aku suka gila :( 🤍</div>
-                </div>
+            <!-- Video 2 -->
+            <div>
+                <video controls style="width: 100%; max-width: 650px; max-height: 500px; border-radius: 12px; background: #000; object-fit: contain; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <source src="2.mp4" type="video/mp4">
+                    Browser awak tidak menyokong video ini.
+                </video>
+                <div style="color: #cbd5e1; margin-top: 10px; font-size: 19px;">ni second date kita yang aku suka gila :( 🤍</div>
+            </div>
+        </div>
 
-        // Floating elements
-        setInterval(() => {
-            const h = document.createElement('div');
-            h.classList.add('floating-heart');
-            h.innerHTML = ['🤍' , '🐈' , '☹️' , '❤️'][Math.floor(Math.random()*4)];
-            h.style.left = Math.random() * 100 + 'vw';
-            h.style.animationDuration = (Math.random() * 4 + 4) + 's';
-            document.getElementById('heartsContainer').appendChild(h);
-            setTimeout(() => h.remove(), 6000);
-        }, 500);
+    </div>
 
+    <script>
         // Quiz Data
         const quizData = [
             {
@@ -412,11 +307,11 @@
             "“aku tahu aku tak fun mcm kawan2 kau yg lain, sorry areeq pernah muncul dlm life kau”",
             "“aku takkan ajak getback dah, dont worry haha”",
             "“nanti kan, bila kau akan kawin, aku taknak kena invite tau, live happily okayy”",
-            "“thankyou untuk semua hadiah and barang kau kasi aku”",
+            "“thankyou untuk semua hadiah dan barang kau kasi aku”",
             "“jangan main2 dgn orang lain tau, jangan always janji, tak semua org sekuat kau areeq, tak semua org bole pendam ;)”",
             "“sorry sbb paksa nak kawin, walhal kau takde niat pun lagi”",
             "“kalau sayang ke rindu ke, ckp je, jgn fikir benda lain, banyak je cara and solution, please..”",
-            "“aku harap ada something value yg aku tinggalkan kat kau, mcm skrg kau dah pandai cari duit hasil dri aku memaksa cari kerja hehehe”",
+            "“aku harap ada something value yg kau tinggalkan kat kau, mcm skrg kau dah pandai cari duit hasil dri aku memaksa cari kerja hehehe”",
             "“banyak lagi benda aku nak ckp, tapi nnti jadi tempat luahan pulak”"
         ];
 
@@ -430,47 +325,6 @@
         function openMysteryBox() {
             document.getElementById('mysteryResult').style.display = 'block';
             confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
-        }
-
-        // Panic Button
-        function triggerPanic() {
-            const spamTexts = [
-                "i love you 🤍",
-                "jgn la selalu marah aku 😔",
-                "jaga diri okay 😿",
-                "jgn friendly gatal sgt haih 😤",
-                "guna elok2 hadiah aku bagi 🥳",
-                "jgn susahkan diri sgt 🙄",
-                "byebye areeq ☹️",
-                "mana aci org lain dpt senang, aku susah ish",
-                "comel kan aku buat",
-                "ingat sikit tarikh first date"
-            ];
-
-            for(let i=0; i<35; i++) {
-                setTimeout(() => {
-                    const spam = document.createElement('div');
-                    spam.innerHTML = spamTexts[Math.floor(Math.random() * spamTexts.length)];
-                    spam.style.fontSize = (Math.random() * 4 + 16) + 'px';
-                    spam.style.background = 'rgba(30, 41, 59, 0.95)';
-                    spam.style.padding = '8px 14px';
-                    spam.style.borderRadius = '8px';
-                    spam.style.border = '1px solid #7DB1D1';
-                    spam.style.color = '#f8fafc';
-                    spam.style.fontWeight = '600';
-                    spam.style.fontFamily = "'Yuyu', cursive, sans-serif";
-
-                    spam.style.position = 'fixed';
-                    spam.style.left = Math.random() * 80 + 'vw';
-                    spam.style.top = Math.random() * 80 + 'vh';
-                    spam.style.zIndex = '99999';
-                    spam.style.pointerEvents = 'none';
-                    spam.style.transition = '0.5s ease-out';
-                    
-                    document.body.appendChild(spam);
-                    setTimeout(() => spam.remove(), 1600);
-                }, i * 40);
-            }
         }
 
         // Passcode
@@ -524,6 +378,19 @@
             confetti({ particleCount: 100, spread: 70, origin: { y:0.5 } });
         }
 
+        // Music Toggle
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const icon = document.getElementById('musicIcon');
+            if (music.paused) {
+                music.play();
+                icon.className = "fa-solid fa-music";
+            } else {
+                music.pause();
+                icon.className = "fa-solid fa-volume-xmark";
+            }
+        }
+
         // Letter Text
         const letterText = `Areeq,
 
@@ -539,7 +406,7 @@ dengan sesiapa kau akan bersama nnti, aku harap dia boleh jaga kau lebih baik dr
 terima kasih untuk segala duit, effort, tenaga dan masa yg kau dah bazirkan kat aku.
 terima kasih untuk segala kenangan dan memori yang aku happy sgt2 walaupun ada naik turun, ada gado teruk semua.
 aku tak pernah penat nak fix kita, cuma kalini aku tak bole nak fix dan usaha semua sorang2, aku tak giveup tau.
-aku sedar yang aku kena respect decision kau, kalau kau sayang bukan macam ni caranya, then i hope you find your happiness areeq ☹️
+aku sedar yang kau kena respect decision kau, kalau kau sayang bukan macam ni caranya, then i hope you find your happiness areeq ☹️
 terima kasih bagi aku jadi perempuan paling happy sepanjang 3-4 tahun kita kenal.
 tahu tak, spnjg kita in relay atau break, kalau keluar je noti kau, aku sentiasa lompat and senyum,
 even huwaina rabi pun kata adala tu areeq chat hahah 😆 aku sayang kau, tapi aku tahu sayang je takkan cukup buat kau happy.
@@ -563,29 +430,19 @@ goodbye my favourite stranger 🐈 thankyou jadi first time aku in everything. h
 
             if (!isLetterOpen) {
                 isLetterOpen = true;
-                lettr.style.display = 'block';
+                lettr.style.display = "block";
                 let i = 0;
-                lettr.innerHTML = ""; 
                 function typeWriter() {
                     if (i < letterText.length) {
                         lettr.innerHTML += letterText.charAt(i);
                         i++;
-                        setTimeout(typeWriter, 35);
+                        setTimeout(typeWriter, 18);
+                    } else {
+                        lettr.classList.remove('typewriter-cursor');
                     }
                 }
-                setTimeout(typeWriter, 400);
-            } else {
-                lettr.style.display = lettr.style.display === 'block' ? 'none' : 'block';
+                typeWriter();
             }
-        }
-
-        let isPlaying = true;
-        function toggleMusic() {
-            const m = document.getElementById('bgMusic');
-            const icon = document.getElementById('musicIcon');
-            if(isPlaying) { m.pause(); icon.className = "fa-solid fa-volume-xmark"; }
-            else { m.play(); icon.className = "fa-solid fa-music"; }
-            isPlaying = !isPlaying;
         }
     </script>
 </body>
